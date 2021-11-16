@@ -25,12 +25,11 @@
     <title>Easy Chart</title>
 </head>
 
-<body>
+<body class="reset container-fluid vh-100">
     <!-- This header contains the header and the navigation menu -->
-    <header id="header" class="container-fluid">
-        <div class="row no-gutters">
+    <header id="header"  class="row no-gutter">
             <div class="col-12 inline">
-              <div class="reset col-6 no-gutters">
+              <div class="reset col-9 no-gutters">
                 <a class="reset nav-link" href="index.html">
                   <h1 class="header_title">Easy Chart</h1>
                 </a>
@@ -45,17 +44,20 @@
                 </nav>
               </div>
             </div>
-          </div>
     </header>
 
-    <!-- This div contains the chart's creation menu -->
-    <div class="menu"></div>
+    <!-- This div contains the menu, the main_container and the footer-->
+    <div class="central_display reset row no-gutters h85">
 
-    <!-- This div contains the instructions, the data for the chart or the chart itself depending the step of the creation's process -->
-    <div class="main_container"></div>
+      <!-- This div contains the chart's creation menu -->
+      <div class="menu reset col-4 inline h100"></div>
 
+      <!-- This div contains the instructions, the data for the chart or the chart itself depending the step of the creation's process -->
+      <div class="main_container reset col-8 inline h100"></div>
+
+    </div>
     <!-- This footer contains links and information about the application -->
-    <footer id="footer"></footer>
+    <footer id="footer" class=" row no-gutters"></footer>
 
     <!--Here comes the link to myJavascript.js. Other files linked at the head to be sure that they are loaded first-->
     <script  src="/assets/js/myJavascript.js"></script>
