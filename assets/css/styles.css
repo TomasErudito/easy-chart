@@ -84,16 +84,15 @@ img {
 }
 /*Header------------------------*/
 
-#header{
-    background-color: rgb(224, 66, 190);
-    color: rgb(239, 244, 245);
-}
+
 
 .header_title{
-    color: rgb(239, 244, 245);
+    margin-left: 30px;
 }
 
-
+.nav_button{
+    margin-right: 10px;
+}
 
 /*Footer------------------------*/
 
