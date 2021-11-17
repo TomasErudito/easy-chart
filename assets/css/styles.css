@@ -11,10 +11,12 @@ html, body{
 
 .menu{
     background-color: tomato;
+    display:none;
 }
 
 .main_container{
     background-color: forestgreen;
+    margin:0 auto;
 }
 
 
