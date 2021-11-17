@@ -1,13 +1,30 @@
 /*fonts---------------------------*/
 
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;800&display=swap');
 
 body {
     font-family: 'Dosis', sans-serif;
+    font-weight: 400;
 }
 
 
 /*colors------------------------*/
+
+.magenta_back{
+    background-color: #cc0066;
+}
+
+.grey_back{
+    background-color: #dfdfdf;
+}
+
+.magenta{
+    color: #cc0066;
+}
+
+.grey{
+    color: #dfdfdf;
+}
 
 /*initial elements------------------------*/
 
@@ -85,4 +102,12 @@ img {
     color: rgb(239, 244, 245);
     min-height:20%;
 
+}
+
+
+
+/*Instructions------------------------*/
+
+#Instructions{
+    color: #cc0066;
 }
