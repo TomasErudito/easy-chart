@@ -15,7 +15,7 @@ body {
 }
 
 .grey_back{
-    background-color: #dfdfdf;
+    background-color: rgb(223, 223, 223);
 }
 
 .magenta{
@@ -41,8 +41,10 @@ html, body{
 }
 
 .main_container{
-    background-color: forestgreen;
-    margin:0 auto;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -112,8 +114,89 @@ img {
 
 
 
-/*Instructions------------------------*/
+/*Instructions / Carousel------------------------*/
 
 #Instructions{
-    color: #cc0066;
+    color: #dfdfdf;
 }
+
+#Instructions h1{
+    position: absolute;
+    top: 0;
+    color: rgb(204, 0, 102);
+}
+
+.slider {
+    width: 600px;
+    height: 400px;
+  }
+  
+  .wrapper {
+    overflow: hidden;
+    position: relative;
+    background: #222;
+    z-index: 1;
+  }
+  
+  #items {
+    width: 10000px;
+    position: relative;
+    top: 0;
+    left: -600px;
+  }
+  
+  #items.shifting {
+    transition: left .2s ease-out;
+  }
+  
+  .slide {
+    width: 600px;
+    height: 400px;
+    cursor: pointer;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 1s;
+    position: relative;
+    background: #FFCF47;
+  }
+
+  .control_carousel {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    background: #cc0066;
+    border-radius: 20px;
+    margin-top: -20px;
+    box-shadow: 1px 1px 10px rgba(223, 223, 223, 0.3);
+    z-index: 2;
+  }
+  
+  .prev_slide,
+  .next_slide {
+    background-size: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  
+  .prev_slide {
+    left: -20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .next_slide {
+    right: -20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .prev_slide:active,
+  .next_slide:active {
+    transform: scale(0.8);
+  }
