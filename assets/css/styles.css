@@ -89,7 +89,13 @@ img {
     top:20%;
 }
 
+.hidden{
+    display:none;
+}
 
+.visible{
+    display:flex;
+}
 
 /*Header------------------------*/
 
@@ -199,4 +205,13 @@ img {
   .prev_slide:active,
   .next_slide:active {
     transform: scale(0.8);
+  }
+
+
+/*data / chart container------------------------*/
+
+  #main_display{
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
   }

@@ -37,9 +37,9 @@
               <div id="navigation" class="reset col-3 no-gutters">
                 <nav class="navbar">
                     <form class="form-inline">
-                      <button class="btn grey_back magenta nav_button" type="button">New</button>
-                      <button class="btn grey_back magenta nav_button" type="button">Export</button>
-                      <button class="btn grey_back magenta nav_button" type="button">Help</button>
+                      <button id="newChart" class="btn grey_back magenta nav_button" type="button">New</button>
+                      <button id="exportChart" class="btn grey_back magenta nav_button" type="button">Export</button>
+                      <button id="needHelp" class="btn grey_back magenta nav_button" type="button">Help</button>
                     </form>
                 </nav>
               </div>
@@ -49,9 +49,9 @@
     <div class="central_display reset row no-gutters h85">
 
       <!-- This div contains the chart's creation menu -->
-      <div class="menu reset col-4 h100"></div>
+      <div id="chart_menu" class="menu reset col-4 h100"></div>
 
-      <!-- This div contains the instructions, the data for the chart or the chart itself depending the step of the creation's process -->
+      <!-- This div contains the instructions -->
       <div id="Instructions" class="main_container reset col-8 inline h100 center">
           <h1 class="reset center">Easy Chart</h1>
           <div id="slider" class="slider reset center loaded">
@@ -67,6 +67,15 @@
           </div>
       
       </div>
+
+      <!-- This div contains the data for the chart or the chart itself depending the step of the creation's process -->
+      <div id="main_display" class="main_container reset col-8 inline h100 center hidden">
+        <h1 class="reset center">Chart creation</h1>
+        <div id="data_chart" class="reset center loaded">
+          
+        </div>
+    
+    </div>
 
     </div>
     <!-- This footer contains links and information about the application -->
