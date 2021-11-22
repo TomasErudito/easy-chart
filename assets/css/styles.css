@@ -10,42 +10,39 @@ body {
 
 /*colors------------------------*/
 
-.magenta_back{
+.magenta_back {
     background-color: #cc0066;
 }
 
-.grey_back{
+.grey_back {
     background-color: rgb(223, 223, 223);
 }
 
-.magenta{
+.magenta {
     color: #cc0066;
 }
 
-.grey{
+.grey {
     color: #dfdfdf;
 }
 
 /*initial elements------------------------*/
 
-html, body{
+html,
+body {
     background-color: whitesmoke;
-    margin: 0; 
-    height: 100%; 
+    margin: 0;
+    height: 100%;
     overflow: hidden;
 }
 
-.menu{
-    background-color: tomato;
-    display:none;
-}
-
-.main_container{
+.main_container {
     background-color: whitesmoke;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 
 
 /*position and sizes--------------------*/
@@ -73,48 +70,57 @@ img {
     margin-bottom: 20px;
 }
 
-.inline{
+.inline {
     display: inline-flex;
 }
 
-.h85{
-    min-height:85%;
+.h85 {
+    min-height: 85%;
 }
 
-.h100{
-    min-height:100%;
+.h100 {
+    min-height: 100%;
 }
 
-.topposition{
-    top:20%;
+.topposition {
+    top: 20%;
 }
 
-.hidden{
-    display:none;
+.hidden {
+    display: none;
 }
 
-.visible{
-    display:flex;
+.visible {
+    display: flex;
+}
+
+.underline {
+    border-bottom: 2px solid #cc0066;
+}
+
+.small_text{
+    font-size: small;
+    padding-left: 20px;
 }
 
 /*Header------------------------*/
 
 
 
-.header_title{
+.header_title {
     margin-left: 30px;
 }
 
-.nav_button{
+.nav_button {
     margin-right: 10px;
 }
 
 /*Footer------------------------*/
 
-#footer{
+#footer {
     background-color: rgb(224, 66, 190);
     color: rgb(239, 244, 245);
-    min-height:20%;
+    min-height: 20%;
 
 }
 
@@ -122,11 +128,11 @@ img {
 
 /*Instructions / Carousel------------------------*/
 
-#Instructions{
+#Instructions {
     color: #dfdfdf;
 }
 
-#Instructions h1{
+#Instructions h1 {
     position: absolute;
     top: 0;
     color: rgb(204, 0, 102);
@@ -135,27 +141,27 @@ img {
 .slider {
     width: 600px;
     height: 400px;
-  }
-  
-  .wrapper {
+}
+
+.wrapper {
     overflow: hidden;
     position: relative;
     background: #222;
     z-index: 1;
-  }
-  
-  #items {
+}
+
+#items {
     width: 10000px;
     position: relative;
     top: 0;
     left: -600px;
-  }
-  
-  #items.shifting {
+}
+
+#items.shifting {
     transition: left .2s ease-out;
-  }
-  
-  .slide {
+}
+
+.slide {
     width: 600px;
     height: 400px;
     cursor: pointer;
@@ -166,9 +172,9 @@ img {
     transition: all 1s;
     position: relative;
     background: #FFCF47;
-  }
+}
 
-  .control_carousel {
+.control_carousel {
     position: absolute;
     top: 50%;
     width: 40px;
@@ -178,40 +184,70 @@ img {
     margin-top: -20px;
     box-shadow: 1px 1px 10px rgba(223, 223, 223, 0.3);
     z-index: 2;
-  }
-  
-  .prev_slide,
-  .next_slide {
+}
+
+.prev_slide,
+.next_slide {
     background-size: 22px;
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
-  }
-  
-  .prev_slide {
+}
+
+.prev_slide {
     left: -20px;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .next_slide {
+}
+
+.next_slide {
     right: -20px;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .prev_slide:active,
-  .next_slide:active {
+}
+
+.prev_slide:active,
+.next_slide:active {
     transform: scale(0.8);
-  }
+}
 
 
 /*data / chart container------------------------*/
 
-  #main_display{
+#main_display {
     width: 100%;
     height: 100%;
     background-color: aqua;
-  }
+}
+
+
+/*data / chart menu------------------------*/
+
+.custom-file-label:after {
+    content: "Import" !important;
+    background-color: #cc0066;
+    color:#dfdfdf;
+    border-radius: 5px;
+}
+
+
+.menu {
+    background-color: #dfdfdf;
+    display: none;
+}
+
+
+#chart_menu {
+    background-color: #dfdfdf;
+    border: none;
+    color: #cc0066;
+    padding: 20px;
+}
+
+.data_menu_element {
+    background-color: #dfdfdf;
+    border: none;
+    color: #cc0066;
+}
