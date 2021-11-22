@@ -103,6 +103,10 @@ img {
     padding-left: 20px;
 }
 
+.right{
+    float:right;
+}
+
 /*Header------------------------*/
 
 
@@ -240,14 +244,51 @@ img {
 
 
 #chart_menu {
-    background-color: #dfdfdf;
+    background-color:#dfdfdf;
     border: none;
     color: #cc0066;
     padding: 20px;
 }
 
 .data_menu_element {
+    background-color:#dfdfdf;
+    border: none;
+    color: #cc0066;
+}
+
+.data_menu_item {
     background-color: #dfdfdf;
     border: none;
     color: #cc0066;
+    display:inline-flex;
+}
+
+
+.data_menu_value {
+    background-color: #dfdfdf;
+    border: none;
+    color: #cc0066;
+    display:inline-flex;
+    float: right;
+    padding: 0;
+    height: 90%;
+    text-align: right;
+}
+
+
+
+.data_menu_textarea {
+    background-color: #dfdfdf;
+    border: 2px solid #cc0066;
+    border-radius: 5px;
+    color: #cc0066;
+    display:inline-flex;
+    height: auto;
+    resize: none;
+}
+
+.data_menu_button{
+    background-color: #cc0066;
+    color:#dfdfdf;
+    border-radius: 5px;
 }

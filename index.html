@@ -60,40 +60,50 @@
               </div>
             </div>
           </div>
+
+          <h6 class="center_content reset w-100 espace">-OR-</h6>
+
+          <h2 class="reset w-100 underline espace">Create a new table</h2>
+          
+          <div class="form-group col-md-12 reset underline espace">
+            <label for="nColumns" class="data_menu_item reset w-50">Columns</label>
+            <select id="nColumns" class="form-control reset data_menu_value w-25">
+              <option selected>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-12 reset underline espace">
+            <label for="nRows" class="data_menu_item reset w-50">Rows</label>
+            <select id="nRows" class="form-control reset data_menu_value w-25">
+              <option selected>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-12 reset underline espace">
+            <label for="chartTitle" class="data_menu_item reset w-50">Title</label>
+            <input type="text" class="form-control reset data_menu_value w-25" id="chartTitle" placeholder="My Chart">
+          </div>
+
+
           <div class="form-group">
-            <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <label for="chartDescription" class="data_menu_item reset w-50">Description</label>
+            <textarea type="text" class="form-control reset data_menu_textarea w-100" id="chartDescription" placeholder="This is the description that appears beside the chart"></textarea>
           </div>
-          <div class="form-group">
-            <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputCity">City</label>
-              <input type="text" class="form-control" id="inputCity">
-            </div>
-            <div class="form-group col-md-4">
-              <label for="inputState">State</label>
-              <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>...</option>
-              </select>
-            </div>
-            <div class="form-group col-md-2">
-              <label for="inputZip">Zip</label>
-              <input type="text" class="form-control" id="inputZip">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
-              <label class="form-check-label" for="gridCheck">
-                Check me out
-              </label>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary">Sign in</button>
+
+          <button id="createTable" type="submit" class="btn data_menu_button">Create table</button>
+          <button id="gotoStep2" type="submit" class="btn data_menu_button right">Next</button>
         </form>
       </div>
 
