@@ -1,4 +1,4 @@
-$( document ).ready(setupPage());
+$(document).ready(setupPage());
 
 
 /**
@@ -10,10 +10,16 @@ $( document ).ready(setupPage());
  *neddHelp()
  *
  */
- function setupPage(){
-    $("#newChart").click(function() {startNew();});
-    $("#exportChart").click(function() {exportChart();});
-    $("#needHelp").click(function() {needHelp();});
+function setupPage() {
+    $("#newChart").click(function () {
+        startNew();
+    });
+    $("#exportChart").click(function () {
+        exportChart();
+    });
+    $("#needHelp").click(function () {
+        needHelp();
+    });
 }
 
 
@@ -25,12 +31,18 @@ $( document ).ready(setupPage());
  *display the data / chart preview
  *
  */
-function startNew(){
-    
+function startNew() {
+
     console.log("start new chart");
     $("#chart_menu").show();
     $("#Instructions").hide();
     $("#main_display").show();
+    $("#create_table").click(function () {
+        createTable(nRows.value, nColumns.value);
+    });
+    $("#gotoStep2").click(function () {
+        customizeChart();
+    });
 }
 
 
@@ -42,7 +54,7 @@ function startNew(){
  *display the data / chart preview
  *
  */
- function exportChart(){
+function exportChart() {
     console.log("export chart");
 }
 
@@ -55,9 +67,53 @@ function startNew(){
  *display the data / chart preview
  *
  */
- function needHelp(){
+function needHelp() {
     console.log("help required");
     $("#chart_menu").hide();
     $("#Instructions").show();
     $("#main_display").hide();
+}
+
+
+
+/**
+ * Start the process of creating a new table
+ *
+ *change menu's display to visible
+ *hide the instructions
+ *display the data / chart preview
+ *
+ */
+function createTable(myRows, myColumns) {
+
+    console.log("create a new table");
+
+    let myHTML = "<table border=1 width=100% height='300px' class='main_table'>";
+
+    for (i = 1; i <= myRows; i++) {
+        myHTML += "<tr>";
+        for (j = 1; j <= myColumns; j++) {
+            myHTML += "<td align=center id='ij'>" + "row " + i + " column " + j + "</td>";
+        }
+
+        myHTML += "</tr>";
+    }
+    myHTML += "</table>";
+    document.getElementById("myTable").innerHTML = myHTML;
+
+}
+
+
+
+
+/**
+ * Select chart style
+ *
+ *change menu's display to visible
+ *hide the instructions
+ *display the data / chart preview
+ *
+ */
+function customizeChart() {
+    console.log("customize chart");
 }
