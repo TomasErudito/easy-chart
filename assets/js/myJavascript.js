@@ -37,6 +37,9 @@ function startNew() {
     $("#chart_menu").show();
     $("#Instructions").hide();
     $("#main_display").show();
+    $("#viewfile").click(function () {
+        ExportToTable();
+    });
     $("#create_table").click(function () {
         createTable(nRows.value, nColumns.value);
     });

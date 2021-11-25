@@ -21,6 +21,9 @@
     </script><!-- Bootstrap js-->
     <script src="https://kit.fontawesome.com/d1dd562f41.js" crossorigin="anonymous"></script><!-- Fontawesome-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script><!-- Chart js-->
+     
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js"></script> <!-- import xlsx js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script>  <!-- import xls js-->
 
     <title>Easy Chart</title>
 </head>
@@ -55,8 +58,8 @@
           <div class="form-row">
             <div class="form-group col-md-12">
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="importData">
-                <label class="custom-file-label data_menu_element" for="importData">Import your Data<span class="small_text">(xls only)</span></label>
+                <input type="file" id="excelfile" />  
+                <input type="button" id="viewfile" value="Export To Table"/>  
               </div>
             </div>
           </div>
@@ -140,6 +143,7 @@
     <!--Here comes the link to myJavascript.js and JS_carousel.js. Other files linked at the head to be sure that they are loaded first-->
     <script  src="/assets/js/myJavascript.js"></script>
     <script  src="/assets/js/JS_carousel.js"></script>
+    <script  src="/assets/js/importxls.js"></script>
 
 </body>
 
