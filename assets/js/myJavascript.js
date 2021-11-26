@@ -96,7 +96,7 @@ function createTable(myRows, myColumns) {
     for (i = 1; i <= myRows; i++) {
         myHTML += "<tr>";
         for (j = 1; j <= myColumns; j++) {
-            myHTML += "<td align=center id='ij'>" + "row " + i + " column " + j + "</td>";
+            myHTML += "<td align=center id='" + i + j +"'>" + "row " + i + " column " + j + "</td>";
         }
 
         myHTML += "</tr>";

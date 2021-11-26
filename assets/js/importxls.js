@@ -1,6 +1,7 @@
 /*this code is from Midhun T P (developer) shared in the page https://www.c-sharpcorner.com/article/reading-a-excel-file-using-html5-jquery/ */
 
 function ExportToTable() {  
+    $('#myTable').html("");
     var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;  
     /*Checks whether the file is a valid excel file*/  
     if (regex.test($("#excelfile").val().toLowerCase())) {  
