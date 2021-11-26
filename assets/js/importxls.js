@@ -34,7 +34,8 @@ function ExportToTable() {
                         var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);  
                     }  
                     if (exceljson.length > 0 && cnt == 0) {  
-                        BindTable(exceljson, '#myTable');  
+                       // BindTable(exceljson, '#myTable');  **commented to try my own code to create table
+                       createTableXls(exceljson, '#myTable');
                         cnt++;  
                     }  
                 });  
@@ -63,8 +64,10 @@ function BindTable(jsondata, tableid) {/*Function used to convert the JSON array
         var row$ = $('<tr/>');  
         for (var colIndex = 0; colIndex < columns.length; colIndex++) {  
             var cellValue = jsondata[i][columns[colIndex]];  
-            if (cellValue == null)  
+            if (cellValue == null) {
                 cellValue = "";  
+            } 
+                
             row$.append($('<td/>').html(cellValue));
 
         }  
@@ -86,9 +89,49 @@ function BindTableHeader(jsondata, tableid) {/*Function used to get all column n
             }  
         }  
     }  
-    $(tableid).append(headerTr$);  
+    //$(tableid).append(headerTr$);  
     return columnSet;  
 }  
+
+
+/**
+ * This code is mine, this function create the table from the data imported with the xls / xlsx file
+ *
+ *change menu's display to visible
+ *hide the instructions
+ *display the data / chart preview
+ *
+ */
+function createTableXls(jsondata, tableid) {
+    let columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/
+
+    let myRows = jsondata.length;
+    let myColumns = columns.length;
+
+
+    console.log("create a new table");
+
+    let myHTML = "<table border=1 width=100% height='300px' class='main_table'>";
+
+    for (i = 0; i < myRows; i++) {
+        myHTML += "<tr>";
+        for (j = 0; j < myColumns; j++) {
+            
+            let cellValue = jsondata[i][columns[j]];
+           
+            myHTML += "<td align=center id='" + (i + 1) + (j + 1) +"'>" + cellValue + "</td>";
+        }
+
+        myHTML += "</tr>";
+    }
+    myHTML += "</table>";
+    document.getElementById("myTable").innerHTML = myHTML;
+
+}
+
+
+
+
 
 
 /* this is how it looks the json: 1 array with 1 object for each row and keys for every column
