@@ -91,17 +91,21 @@ function createTable(myRows, myColumns) {
 
     console.log("create a new table");
 
-    let myHTML = "<table border=1 width=100% height='300px' class='main_table'>";
+    let myHTML = "<form autocomplete='off'><table class='main_table'>";
 
     for (i = 1; i <= myRows; i++) {
-        myHTML += "<tr>";
+            myHTML += "<tr>";
         for (j = 1; j <= myColumns; j++) {
-            myHTML += "<td align=center id='" + i + j +"'>" + "row " + i + " column " + j + "</td>";
-        }
-
-        myHTML += "</tr>";
+        if(i === 1){
+            myHTML += "<th align=center> <input type='text' class='reset table_input' id='" + i + j +"' name='" + i + j +"'></th>";
+        }else{
+            myHTML += "<td align=center> <input type='text' class='reset table_input' id='" + i + j +"' name='" + i + j +"'></td>";
+        };
+           
+        };
+         myHTML += "</tr>";
     }
-    myHTML += "</table>";
+    myHTML += "</table></form>";
     document.getElementById("myTable").innerHTML = myHTML;
 
 }

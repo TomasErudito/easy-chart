@@ -292,3 +292,43 @@ img {
     color:#dfdfdf;
     border-radius: 5px;
 }
+
+
+
+/*data table ------------------*/
+
+#data_chart{
+width: 90%;
+}
+
+.main_table th{
+    background-color: #cc0066;
+    color:#dfdfdf;
+    border: 2px solid #dfdfdf;
+    text-align: center;
+    border-collapse: initial;
+}
+
+.main_table td{
+    background-color: #dfdfdf;
+    color:#cc0066;
+    border: 2px solid #cc0066;
+    text-align: center;
+    border-collapse: initial;
+}
+
+.main_table{
+    border:2px solid #cc0066; 
+    background-color: #dfdfdf;
+    color:#222;
+    width:100%; 
+    height:300px; 
+    border-spacing: 0;
+}
+
+.table_input{
+    border: 0;
+    background: inherit;
+    color: inherit;
+    text-align: center;
+}
