@@ -91,7 +91,7 @@ function createTable(myRows, myColumns) {
 
     console.log("create a new table");
 
-    let myHTML = "<form autocomplete='off'><table class='main_table'>";
+    let myHTML = "<form autocomplete='off'><table class='main_table vh-100'>";
 
     for (i = 1; i <= myRows; i++) {
             myHTML += "<tr>";
