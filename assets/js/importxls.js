@@ -108,8 +108,9 @@ function createTableXls(jsondata, tableid) {
     let myRows = jsondata.length;
     let myColumns = columns.length;
 
+    columnsNumber = myColumns;
+    rowsNumber = myRows;
 
-    console.log("create a new table");
 
     let myHTML = "<form autocomplete='off'><table class='main_table h-75'><tr>";
 

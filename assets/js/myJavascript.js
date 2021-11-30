@@ -104,6 +104,9 @@ function needHelp() {
  */
 function createTable(myRows, myColumns) { 
 
+    columnsNumber = myColumns;
+    rowsNumber = myRows;
+
     myRows++;
     myColumns++;
 
