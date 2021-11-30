@@ -113,7 +113,9 @@ function createTableXls(jsondata, tableid) {
 
     let myHTML = "<form autocomplete='off'><table class='main_table h-75'><tr>";
 
-    for (h = 0; h < myColumns; h++){
+    myHTML += "<th align=center></th>"; //creates an empty cell at the beginning
+
+    for (h = 1; h < myColumns; h++){
         let headerValue = columns[h];  
         myHTML += "<th align=center> <input type='text' class='reset table_input' id='header" + (h + 1) +"' name='header" + (h + 1) +"' value='" + headerValue + "'></th>";
     }
@@ -126,8 +128,12 @@ function createTableXls(jsondata, tableid) {
             
             let cellValue = jsondata[i][columns[j]];
             
-            myHTML += "<td align=center> <input type='text' class='reset table_input' id='" + (i + 1) + (j + 1) +"' name='" + (i + 1) + (j + 1) +"' value='" + cellValue + "'></td>";
-           
+            if(j == 0){
+                myHTML += "<td align=center class='table_serie'> <input type='text' class='reset table_input ' id='serie" + (i + 1)+"' name='serie" + (i + 1)+"' value='" + cellValue + "'></td>";
+            }else{
+                myHTML += "<td align=center> <input type='text' class='reset table_input' id='data_" + (i + 1) + (j + 1) +"' name='data_" + (i + 1) + (j + 1) +"' value='" + cellValue + "'></td>";
+            }
+
             //myHTML += "<td align=center id='" + (i + 1) + (j + 1) +"'>" + cellValue + "</td>";
         }
 

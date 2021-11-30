@@ -5,7 +5,8 @@
  *
  */
 let chartTitle;
-
+let columnsNumber;
+let rowsNumber;
 
 
 
@@ -101,19 +102,27 @@ function needHelp() {
  *display the data / chart preview
  *
  */
-function createTable(myRows, myColumns) {
+function createTable(myRows, myColumns) { 
 
-    console.log("create a new table");
+    myRows++;
+    myColumns++;
+
 
     let myHTML = "<form autocomplete='off'><table class='main_table h-75'>";
 
     for (i = 1; i <= myRows; i++) {
             myHTML += "<tr>";
         for (j = 1; j <= myColumns; j++) {
-        if(i === 1){
-            myHTML += "<th align=center> <input type='text' class='reset table_input'  id='header" + j +"' name='header" + j +"'></th>";
+        if(i === 1 && j === 1){
+            myHTML += "<th align=center> </th>";
+        }else if(i === 1){
+            myHTML += "<th align=center> <input type='text' class='reset table_input'  id='header" + (j - 1) +"' name='header" + (j - 1) +"' value='value " + (j - 1) + "'></th>";
         }else{
-            myHTML += "<td align=center> <input type='text' class='reset table_input' id='" + (i - 1) + j +"' name='" + (i - 1) + j +"'></td>";
+            if(j === 1){
+                myHTML += "<td align=center class='table_serie'> <input type='text' class='reset table_input ' id='serie" + (i - 1)+"' name='serie" + (i - 1)+"' value='serie " + (i - 1) + "'></td>";
+            }else{
+            myHTML += "<td align=center> <input type='text' class='reset table_input' id='data_" + (i - 1) + (j - 1) +"' name='data_" + (i - 1) + (j - 1) +"'></td>";
+            }
         };
            
         };

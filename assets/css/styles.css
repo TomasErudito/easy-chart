@@ -345,3 +345,11 @@ width: 90%;
     color: inherit;
     text-align: center;
 }
+
+.main_table .table_serie{
+    background-color: #cc0066;
+    color:#dfdfdf;
+    border: 2px solid #dfdfdf;
+    text-align: center;
+    border-collapse: initial;
+}
