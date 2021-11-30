@@ -111,9 +111,9 @@ function createTable(myRows, myColumns) {
             myHTML += "<tr>";
         for (j = 1; j <= myColumns; j++) {
         if(i === 1){
-            myHTML += "<th align=center> <input type='text' class='reset table_input' id='" + i + j +"' name='" + i + j +"'></th>";
+            myHTML += "<th align=center> <input type='text' class='reset table_input'  id='header" + j +"' name='header" + j +"'></th>";
         }else{
-            myHTML += "<td align=center> <input type='text' class='reset table_input' id='" + i + j +"' name='" + i + j +"'></td>";
+            myHTML += "<td align=center> <input type='text' class='reset table_input' id='" + (i - 1) + j +"' name='" + (i - 1) + j +"'></td>";
         };
            
         };
