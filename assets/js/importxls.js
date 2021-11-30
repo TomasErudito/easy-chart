@@ -111,18 +111,23 @@ function createTableXls(jsondata, tableid) {
 
     console.log("create a new table");
 
-    let myHTML = "<form autocomplete='off'><table class='main_table h-75'>";
+    let myHTML = "<form autocomplete='off'><table class='main_table h-75'><tr>";
+
+    for (h = 0; h < myColumns; h++){
+        let headerValue = columns[h];  
+        myHTML += "<th align=center> <input type='text' class='reset table_input' id='header" + h +"' name='header" + h +"' value='" + headerValue + "'></th>";
+    }
+    myHTML += "</tr>";
 
     for (i = 0; i < myRows; i++) {
         myHTML += "<tr>";
+
         for (j = 0; j < myColumns; j++) {
             
             let cellValue = jsondata[i][columns[j]];
-            if(i === 0){
-                myHTML += "<th align=center> <input type='text' class='reset table_input' id='" + i + j +"' name='" + i + j +"' value='" + cellValue + "'></th>";
-            }else{
-                myHTML += "<td align=center> <input type='text' class='reset table_input' id='" + i + j +"' name='" + i + j +"' value='" + cellValue + "'></td>";
-            };
+            
+            myHTML += "<td align=center> <input type='text' class='reset table_input' id='" + i + j +"' name='" + i + j +"' value='" + cellValue + "'></td>";
+           
             //myHTML += "<td align=center id='" + (i + 1) + (j + 1) +"'>" + cellValue + "</td>";
         }
 
