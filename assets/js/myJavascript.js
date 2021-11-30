@@ -1,3 +1,14 @@
+/**
+ * Here are variables that need to be used for the creation of the chart 
+ *
+ *They will be stored here, so we don't need to request them so many times, and only when changes are made
+ *
+ */
+let chartTitle;
+
+
+
+
 $(document).ready(setupPage());
 
 
@@ -40,6 +51,9 @@ function startNew() {
     $("#viewfile").click(function () {
         ExportToTable();
     });
+    $("#chartTitle").on("input", function() {
+        titleCreation(); 
+     });
     $("#create_table").click(function () {
         createTable(nRows.value, nColumns.value);
     });
@@ -111,6 +125,18 @@ function createTable(myRows, myColumns) {
 }
 
 
+/**
+ * Take the title from the menu and save it in a variable and display it during the creation process
+ *
+ *change menu's display to visible
+ *hide the instructions
+ *display the data / chart preview
+ *
+ */
+ function titleCreation() {
+    chartTitle = $("#chartTitle").val();
+    $("#chart_title").html(chartTitle);
+}
 
 
 /**
