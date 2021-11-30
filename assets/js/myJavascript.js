@@ -46,19 +46,16 @@ function setupPage() {
 function startNew() {
 
     console.log("start new chart");
-    $("#chart_menu").show();
+    $("#chart_menu_step_1").show();
     $("#Instructions").hide();
     $("#main_display").show();
-    $("#viewfile").click(function () {
-        ExportToTable();
-    });
     $("#chartTitle").on("input", function() {
         titleCreation(); 
      });
     $("#create_table").click(function () {
         createTable(nRows.value, nColumns.value);
     });
-    $("#gotoStep2").click(function () {
+    $("#gotoStep3").click(function () {
         customizeChart();
     });
 }
@@ -161,4 +158,21 @@ function createTable(myRows, myColumns) {
  */
 function customizeChart() {
     console.log("customize chart");
+    
+    $("#chart_menu_step_1").hide();
+    $("#chart_menu_step_2").show();
+    $("#Instructions").hide();
+    $("#main_display").show();
+    $("#viewfile").click(function () {
+        ExportToTable();
+    });
+    $("#chartTitle").on("input", function() {
+        titleCreation(); 
+     });
+    $("#create_table").click(function () {
+        createTable(nRows.value, nColumns.value);
+    });
+    $("#gotoStep3").click(function () {
+        customizeChart();
+    });
 }

@@ -243,7 +243,7 @@ img {
 }
 
 
-#chart_menu {
+.chart_menu {
     background-color:#dfdfdf;
     border: none;
     color: #cc0066;
