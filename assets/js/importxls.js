@@ -111,20 +111,26 @@ function createTableXls(jsondata, tableid) {
 
     console.log("create a new table");
 
-    let myHTML = "<table border=1 width=100% height='300px' class='main_table'>";
+    let myHTML = "<form autocomplete='off'><table class='main_table h-75'>";
 
     for (i = 0; i < myRows; i++) {
         myHTML += "<tr>";
         for (j = 0; j < myColumns; j++) {
             
             let cellValue = jsondata[i][columns[j]];
-           
-            myHTML += "<td align=center id='" + (i + 1) + (j + 1) +"'>" + cellValue + "</td>";
+            if(i === 0){
+                myHTML += "<th align=center> <input type='text' class='reset table_input' id='" + i + j +"' name='" + i + j +"' value='" + cellValue + "'></th>";
+            }else{
+                myHTML += "<td align=center> <input type='text' class='reset table_input' id='" + i + j +"' name='" + i + j +"' value='" + cellValue + "'></td>";
+            };
+            //myHTML += "<td align=center id='" + (i + 1) + (j + 1) +"'>" + cellValue + "</td>";
         }
 
         myHTML += "</tr>";
     }
-    myHTML += "</table>";
+
+
+    myHTML += "</table></form>";
     document.getElementById("myTable").innerHTML = myHTML;
 
 }

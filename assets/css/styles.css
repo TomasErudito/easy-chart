@@ -301,6 +301,18 @@ img {
 width: 90%;
 }
 
+.main_table{
+    border:2px solid #cc0066; 
+    background-color: #dfdfdf;
+    color:#222;
+    width:90%; 
+    border-spacing: 0;
+}
+
+.main_table tr{
+    height: 50px! important;
+}
+
 .main_table th{
     background-color: #cc0066;
     color:#dfdfdf;
@@ -315,14 +327,8 @@ width: 90%;
     border: 2px solid #cc0066;
     text-align: center;
     border-collapse: initial;
-}
-
-.main_table{
-    border:2px solid #cc0066; 
-    background-color: #dfdfdf;
-    color:#222;
-    width:100%; 
-    border-spacing: 0;
+    max-height: 50px! important;
+    min-height: 50px! important;
 }
 
 .table_input{
