@@ -7,6 +7,7 @@
 let chartTitle;
 let columnsNumber;
 let rowsNumber;
+let chartStyle;
 
 
 
@@ -49,11 +50,42 @@ function startNew() {
     $("#chart_menu_step_1").show();
     $("#Instructions").hide();
     $("#main_display").show();
-    $("#chartTitle").on("input", function() {
-        titleCreation(); 
-     });
-    $("#create_table").click(function () {
-        createTable(nRows.value, nColumns.value);
+    $("#bar_icon").hover(function () {
+        $("#chartTypeSelectionTitle").html("Bar Chart");
+    });
+    $("#stack_icon").hover(function () {
+        $("#chartTypeSelectionTitle").html("Stack Chart");
+    });
+    $("#pie_icon").hover(function () {
+        $("#chartTypeSelectionTitle").html("Pie Chart");
+    });
+    $("#radar_icon").hover(function () {
+        $("#chartTypeSelectionTitle").html("Radar Chart");
+    });
+    $("#line_icon").hover(function () {
+        $("#chartTypeSelectionTitle").html("Line Chart");
+    });
+    $("#bubble_icon").hover(function () {
+        $("#chartTypeSelectionTitle").html("Bubble Chart");
+    });
+    
+    $("#bar_icon").click(function () {
+        chartStyle = "barChart";
+    });
+    $("#stack_icon").hover(function () {
+        chartStyle = "stackChart";
+    });
+    $("#pie_icon").hover(function () {
+        chartStyle = "pieChart";
+    });
+    $("#radar_icon").hover(function () {
+        chartStyle = "radarChart";
+    });
+    $("#line_icon").hover(function () {
+        chartStyle = "lineChart";
+    });
+    $("#bubble_icon").hover(function () {
+        chartStyle = "bubbleChart";
     });
     $("#gotoStep3").click(function () {
         customizeChart();
