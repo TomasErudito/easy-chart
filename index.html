@@ -120,7 +120,7 @@
         <div class="form-row">
           <div class="form-group col-md-12">
             <div class="dropdown underline">
-              <label for="chart_selection" class="data_menu_item reset w-50">Select your chart style</label>
+              <label id="chart_style_label" for="chart_selection" class="data_menu_item reset w-50">Select your chart style</label>
               <button type="button" id="chart_selection" class="data_menu_button right" data-toggle="modal"
                 data-target="#chartTypeSelection">Choose</button>
             </div>
@@ -132,27 +132,27 @@
             <div class="modal-content">
               <div class="modal-header gold">
                 <h5 class="modal-title" id="chartTypeSelectionTitle">Chart Style</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close deselect_icons" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                 <div class="container-fluid">
                   <div class="row espace">
-                    <div class="col-md-4"><img src="/assets/images/icons/bar_icon2.jpg" alt="" id="bar_icon"></div>
-                    <div class="col-md-4"><img src="/assets/images/icons/bar_icon.jpg" alt=""  id="stack_icon"></div>
-                    <div class="col-md-4"><img src="/assets/images/icons/bubble_icon.jpg" alt=""  id="bubble_icon"></div>
+                    <div class="col-md-4"><img src="/assets/images/icons/bar_icon2.jpg" alt="" id="bar_icon" class="chart_icons"></div>
+                    <div class="col-md-4"><img src="/assets/images/icons/bar_icon.jpg" alt=""  id="stack_icon" class="chart_icons"></div>
+                    <div class="col-md-4"><img src="/assets/images/icons/bubble_icon.jpg" alt=""  id="bubble_icon" class="chart_icons"></div>
                   </div>
                   <div class="row">
-                    <div class="col-md-4"><img src="/assets/images/icons/line_icon.jpg" alt=""  id="line_icon"></div>
-                    <div class="col-md-4"><img src="/assets/images/icons/pie_icon.jpg" alt=""  id="pie_icon"></div>
-                    <div class="col-md-4"><img src="/assets/images/icons/radar_icon.jpg" alt=""  id="radar_icon"></div>
+                    <div class="col-md-4"><img src="/assets/images/icons/line_icon.jpg" alt=""  id="line_icon" class="chart_icons"></div>
+                    <div class="col-md-4"><img src="/assets/images/icons/pie_icon.jpg" alt=""  id="pie_icon" class="chart_icons"></div>
+                    <div class="col-md-4"><img src="/assets/images/icons/radar_icon.jpg" alt=""  id="radar_icon" class="chart_icons"></div>
                   </div>
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn gold" data-dismiss="modal">Confirm Booking</button>
+                <button type="button" class="btn btn-secondary deselect_icons" data-dismiss="modal">Close</button>
+                <button type="button" class="btn gold confirm_chart" data-dismiss="modal">Confirm selection </button>
               </div>
             </div>
           </div>

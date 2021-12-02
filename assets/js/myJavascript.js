@@ -22,6 +22,8 @@ $(document).ready(setupPage());
  *exprotChart()
  *neddHelp()
  *
+ *
+ * 
  */
 function setupPage() {
     $("#newChart").click(function () {
@@ -34,6 +36,98 @@ function setupPage() {
         needHelp();
     });
 }
+
+
+/**
+ * changes the border of the chart icons in the selection process
+ *
+ *
+ */
+ function highlightIcon(item) {
+    let name = item.id;
+    let newValue;
+    switch (name) {
+        case "bar_icon":
+            newValue = "Bar Chart";
+          break;
+          case "stack_icon":
+            newValue = "Stack Chart";
+          break;
+          case "pie_icon":
+            newValue = "Pie Chart";
+          break;
+          case "radar_icon":
+            newValue = "Radar Chart";
+          break;
+          case "line_icon":
+            newValue = "Line Chart";
+          break;
+          case "bubble_icon":
+            newValue = "Bubble Chart";
+          break;
+        default:
+            newValue = "Chart Style";
+
+       
+ }
+    $( ".chart_icons" ).css( "border", "none" );
+    $("#chartTypeSelectionTitle").html(newValue);
+     item.style.border = '2px solid #cc0066';  
+ }
+
+/**
+ * deselect the chart in the selection process
+ *
+ *
+ */
+ function unHighlightIcon() {
+    
+     $("#chartTypeSelectionTitle").html("Chart Style");
+     $( ".chart_icons" ).css( "border", "none" )     
+ }
+
+
+
+/**
+ * confirm the chart in the selection process
+ *
+ *
+ */
+ function confirmChartStyle() {
+    
+    let name = $("#chartTypeSelectionTitle").html();
+    let newValue ="";
+    switch (name) {
+        case "Bar Chart" :
+            newValue = "bar_icon";
+          break;
+          case "Stack Chart":
+            newValue = "stack_icon";
+          break;
+          case "Pie Chart":
+            newValue = "pie_icon";
+          break;
+          case "Radar Chart":
+            newValue = "radar_icon";
+          break;
+          case "Line Chart":
+            newValue = "line_icon";
+          break;
+          case "Bubble Chart":
+            newValue = "bubble_icon";
+          break;
+        default:
+          
+
+       
+ }
+    $( ".chart_icons" ).css( "border", "none" );
+    $("#"+newValue).css( "border", "2px solid #cc0066");
+     $("#chart_style_label").html(name);
+     chartStyle = newValue; 
+}
+
+
 
 
 /**
@@ -50,42 +144,32 @@ function startNew() {
     $("#chart_menu_step_1").show();
     $("#Instructions").hide();
     $("#main_display").show();
-    $("#bar_icon").hover(function () {
-        $("#chartTypeSelectionTitle").html("Bar Chart");
-    });
-    $("#stack_icon").hover(function () {
-        $("#chartTypeSelectionTitle").html("Stack Chart");
-    });
-    $("#pie_icon").hover(function () {
-        $("#chartTypeSelectionTitle").html("Pie Chart");
-    });
-    $("#radar_icon").hover(function () {
-        $("#chartTypeSelectionTitle").html("Radar Chart");
-    });
-    $("#line_icon").hover(function () {
-        $("#chartTypeSelectionTitle").html("Line Chart");
-    });
-    $("#bubble_icon").hover(function () {
-        $("#chartTypeSelectionTitle").html("Bubble Chart");
-    });
-    
+    $("#chart_selection").click(function(){
+        unHighlightIcon();
+    })
     $("#bar_icon").click(function () {
-        chartStyle = "barChart";
+        highlightIcon(this);
     });
-    $("#stack_icon").hover(function () {
-        chartStyle = "stackChart";
+    $("#stack_icon").click(function () {
+        highlightIcon(this);
     });
-    $("#pie_icon").hover(function () {
-        chartStyle = "pieChart";
+    $("#pie_icon").click(function () {
+        highlightIcon(this);
     });
-    $("#radar_icon").hover(function () {
-        chartStyle = "radarChart";
+    $("#radar_icon").click(function () {
+        highlightIcon(this);
     });
-    $("#line_icon").hover(function () {
-        chartStyle = "lineChart";
+    $("#line_icon").click(function () {
+        highlightIcon(this);
     });
-    $("#bubble_icon").hover(function () {
-        chartStyle = "bubbleChart";
+    $("#bubble_icon").click(function () {
+        highlightIcon(this);
+    });
+    $(".deselect_icons").click(function () {
+        unHighlightIcon();
+    });
+    $(".confirm_chart").click(function () {
+        confirmChartStyle();
     });
     $("#gotoStep3").click(function () {
         customizeChart();
