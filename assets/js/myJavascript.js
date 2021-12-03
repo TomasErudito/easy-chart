@@ -8,7 +8,7 @@ let chartTitle;
 let columnsNumber;
 let rowsNumber;
 let chartStyle;
-
+let colourSelected;
 
 
 $(document).ready(setupPage());
@@ -36,6 +36,8 @@ function setupPage() {
         needHelp();
     });
 }
+
+//this part of code is related to the modal with icons to select the chart style and chart style selection
 
 
 /**
@@ -67,7 +69,6 @@ function setupPage() {
           break;
         default:
             newValue = "Chart Style";
-
        
  }
     $( ".chart_icons" ).css( "border", "none" );
@@ -117,9 +118,6 @@ function setupPage() {
             newValue = "bubble_icon";
           break;
         default:
-          
-
-       
  }
     $( ".chart_icons" ).css( "border", "none" );
     $("#"+newValue).css( "border", "2px solid #cc0066");
@@ -127,6 +125,75 @@ function setupPage() {
      chartStyle = newValue; 
 }
 
+
+
+//this part of code is related to the modal with icons to select the chart colours and chart colours selection
+
+
+/**
+ * changes the border of the colour icons in the selection process
+ *
+ *
+ */
+ function highlightColour(item) {
+    let name = item.id;
+    let newValue = name.charAt(6);
+       
+    $( ".colour_icons" ).css( "border", "none" );
+    $("#chart_colour_label").html("<img src='/assets/images/colours/colour_"+newValue+".jpg' alt='' id='selectedColour' class='colour_icons'>");
+     item.style.border = '2px solid #cc0066';  
+     colourSelected = newValue--; 
+ }
+
+/**
+ * deselect the chart in the selection process
+ *
+ *
+ */
+ function unHighlightColour() {
+    
+     $("#chart_colour_label").html("Select the colours");
+     $( ".colour_icons" ).css( "border", "none" )     
+ }
+
+
+
+/**
+ * confirm the chart in the selection process
+ *
+ *
+ */
+ function confirmChartColour() {
+    /*
+    let name = $("#chartTypeSelectionTitle").html();
+    let newValue ="";
+    switch (name) {
+        case "Bar Chart" :
+            newValue = "bar_icon";
+          break;
+          case "Stack Chart":
+            newValue = "stack_icon";
+          break;
+          case "Pie Chart":
+            newValue = "pie_icon";
+          break;
+          case "Radar Chart":
+            newValue = "radar_icon";
+          break;
+          case "Line Chart":
+            newValue = "line_icon";
+          break;
+          case "Bubble Chart":
+            newValue = "bubble_icon";
+          break;
+        default:
+ }
+    $( ".colour_icons" ).css( "border", "none" );
+    $("#"+newValue).css( "border", "2px solid #cc0066");
+     $("#chart_style_label").html(name);
+     chartStyle = newValue; 
+     */
+}
 
 
 
@@ -147,22 +214,7 @@ function startNew() {
     $("#chart_selection").click(function(){
         unHighlightIcon();
     })
-    $("#bar_icon").click(function () {
-        highlightIcon(this);
-    });
-    $("#stack_icon").click(function () {
-        highlightIcon(this);
-    });
-    $("#pie_icon").click(function () {
-        highlightIcon(this);
-    });
-    $("#radar_icon").click(function () {
-        highlightIcon(this);
-    });
-    $("#line_icon").click(function () {
-        highlightIcon(this);
-    });
-    $("#bubble_icon").click(function () {
+    $(".chart_icons").click(function () {
         highlightIcon(this);
     });
     $(".deselect_icons").click(function () {
@@ -170,6 +222,15 @@ function startNew() {
     });
     $(".confirm_chart").click(function () {
         confirmChartStyle();
+    });
+    $(".colour_icons").click(function () {
+        highlightColour(this);
+    });
+    $(".deselect_colour").click(function () {
+        unHighlightColour();
+    });
+    $(".confirm_colour").click(function () {
+        confirmChartColour();
     });
     $("#gotoStep3").click(function () {
         customizeChart();

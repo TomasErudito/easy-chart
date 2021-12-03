@@ -127,6 +127,8 @@
           </div>
         </div>
 
+        <!-- This the modal with for the selection of the chart style -->
+
         <div class="modal fade" id="chartTypeSelection" tabindex="-1" role="dialog">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -159,58 +161,50 @@
         </div>
 
 
-        <!--
-        <div class="modal fade modal-sm" id="chartTypeSelection" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-          aria-hidden="true">
-        <div class="modal-body">
-          <div class="modal-header">
-            <h5 class="modal-title" id="chart_type_name">Chart Style</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-4"><img src="/assets/images/icons/bar_icon2.jpg" alt="" ></div>
-              <div class="col-md-4"><img src="/assets/images/icons/bar_icon2.jpg" alt="" ></div>
-              <div class="col-md-4"><img src="/assets/images/icons/bar_icon2.jpg" alt="" ></div>
-            </div>
-            <div class="row">
-              <div class="col-md-4"><img src="/assets/images/icons/bar_icon2.jpg" alt="" ></div>
-              <div class="col-md-4"><img src="/assets/images/icons/bar_icon2.jpg" alt="" ></div>
-              <div class="col-md-4"><img src="/assets/images/icons/bar_icon2.jpg" alt="" ></div>
+        <!-- This is the modal for the colour selection-->
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <div class="dropdown underline">
+              <label id="chart_colour_label" for="colour_selection" class="data_menu_item reset w-50">Select the colours</label>
+              <button type="button" id="colour_selection" class="data_menu_button right" data-toggle="modal"
+                data-target="#chartColourSelection">Choose</button>
             </div>
           </div>
         </div>
-    </div>
-  -->
-    <h6 class="center_content reset w-100 espace">-OR-</h6>
 
-    <h2 class="reset w-100 underline espace">Create a new table</h2>
-
-    <div class="form-group col-md-12 reset underline espace">
-      <label for="nColumns" class="data_menu_item reset w-50">Columns</label>
-      <select id="nColumns" class="form-control reset data_menu_value w-25">
-        <option selected>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-
-    <div class="form-group col-md-12 reset underline espace">
-      <label for="nRows" class="data_menu_item reset w-50">Rows</label>
-      <select id="nRows" class="form-control reset data_menu_value w-25">
-        <option selected>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-      </select>
-    </div>
+        <div class="modal fade" id="chartColourSelection" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="chartColourSelectionTitle">Select the colours</h5>
+                <button type="button" class="close deselect_colour" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <div class="row espace">
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_1.jpg" alt="" id="colour1" class="colour_icons"></div>
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_2.jpg" alt="" id="colour2" class="colour_icons"></div>
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_3.jpg" alt="" id="colour3" class="colour_icons"></div>
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_4.jpg" alt="" id="colour4" class="colour_icons"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_5.jpg" alt="" id="colour5" class="colour_icons"></div>
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_6.jpg" alt="" id="colour6" class="colour_icons"></div>
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_7.jpg" alt="" id="colour7" class="colour_icons"></div>
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_8.jpg" alt="" id="colour8" class="colour_icons"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary deselect_colour" data-dismiss="modal">Close</button>
+                <button type="button" class="btn gold confirm_colour" data-dismiss="modal">Confirm selection </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
     <div class="form-group col-md-12 reset underline espace">
       <label for="chartTitle" class="data_menu_item reset w-50">Title</label>
