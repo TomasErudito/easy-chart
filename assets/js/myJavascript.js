@@ -228,7 +228,7 @@ function startNew() {
    $( "#chartDescription" ).change(function() {
     chartDescription = this.value;
   });
-    $("#gotoStep3").click(function () {
+    $("#gotoStep2").click(function () {
         customizeChart();
     });
 }
