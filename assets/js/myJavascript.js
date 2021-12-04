@@ -20,7 +20,8 @@ let colourPalette = [
   ["f8b195", "f67280", "c06c84", "6c5b7b", "355c7d", "bf4d28"]
 ];
 let chartBackgroundColor;
-
+let chartDescription;
+let descriptionPosition;
 
 
 //----------------------------------------------------------------------------------//
@@ -219,8 +220,14 @@ function startNew() {
         unHighlightColour();
     });
      $( "#chartBackground" ).change(function() {
-      chartBackgroundColor = chartBackground.value;
+      chartBackgroundColor = this.value;
     });
+    $( "#descriptionPosition" ).change(function() {
+     descriptionPosition = this.value;
+   });
+   $( "#chartDescription" ).change(function() {
+    chartDescription = this.value;
+  });
     $("#gotoStep3").click(function () {
         customizeChart();
     });

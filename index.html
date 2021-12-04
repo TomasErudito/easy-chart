@@ -100,13 +100,6 @@
           <input type="text" class="form-control reset data_menu_value w-50" id="chartTitle" value="Chart Title">
         </div>
 
-
-        <div class="form-group">
-          <label for="chartDescription" class="data_menu_item reset w-50">Description</label>
-          <textarea type="text" class="form-control reset data_menu_textarea w-100" id="chartDescription"
-            placeholder="This is the description that appears beside the chart"></textarea>
-        </div>
-
         <button id="create_table" type="button" class="btn data_menu_button">Create table</button>
         <button id="gotoStep2" type="button" class="btn data_menu_button right">Next</button>
       </form>
@@ -218,7 +211,17 @@
         placeholder="This is the description that appears beside the chart"></textarea>
     </div>
 
-    <button id="create_table" type="button" class="btn data_menu_button">Create table</button>
+    
+    <div class="form-group col-md-12 reset underline espace">
+      <label for="descriptionPosition" class="data_menu_item reset w-50">Description position</label>
+      <select id="descriptionPosition" class="form-control reset data_menu_value w-25">
+        <option selected>Bottom</option>
+        <option>Left</option>
+        <option>Right</option>
+        <option>Top</option>
+      </select>
+    </div>
+
     <button id="gotoStep2" type="button" class="btn data_menu_button right">Next</button>
     </form>
   </div>
