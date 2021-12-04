@@ -295,6 +295,12 @@ img {
     border-style: double;
 }
 
+#chartBackground{
+    height:1.5em;
+    width:50px;
+}
+
+
 /*data table ------------------*/
 
 #chart_title{

@@ -9,10 +9,34 @@ let columnsNumber;
 let rowsNumber;
 let chartStyle;
 let colourSelected;
+let colourPalette = [
+  ["422066", "ffb85f", "ff7a5a", "00aaa0", "8ed2c9", "fcf4d9"],
+  ["218c8d", "6ccecb", "f9e559", "ef7126", "8edc9d", "473e3f"],
+  ["60bb22", "ffc200", "ff5b00", "b80028", "84002e", "4ac0f2"],
+  ["bd2031", "fdb813", "f68b1f", "f17022", "62c2cc", "eef66c"],
+  ["c5aaf5", "a3cbf1", "79bfa1", "f5a352", "fb7374", "423c40"],
+  ["ff9c00", "351330", "424254", "64908a", "e8caa4", "cc2a41"],
+  ["5e412f", "fcebb6", "78c0a8", "f07818", "f0a830", "d68189"],
+  ["f8b195", "f67280", "c06c84", "6c5b7b", "355c7d", "bf4d28"]
+];
+let chartBackgroundColor;
 
 
+
+//----------------------------------------------------------------------------------//
+/**
+ * start the setup once the document is ready
+ *
+ *call the functions
+ *setupPage()
+ *
+ *
+ * 
+ */
 $(document).ready(setupPage());
 
+
+//-----------------------------------------------------------------------------------//
 
 /**
  * setup the actions for the buttons in the navbar
@@ -36,6 +60,8 @@ function setupPage() {
         needHelp();
     });
 }
+
+//------------------------------------------------------------------------------------//
 
 //this part of code is related to the modal with icons to select the chart style and chart style selection
 
@@ -125,7 +151,7 @@ function setupPage() {
      chartStyle = newValue; 
 }
 
-
+//-----------------------------------------------------------------------------------------------------//
 
 //this part of code is related to the modal with icons to select the chart colours and chart colours selection
 
@@ -142,11 +168,13 @@ function setupPage() {
     $( ".colour_icons" ).css( "border", "none" );
     $("#chart_colour_label").html("<img src='/assets/images/colours/colour_"+newValue+".jpg' alt='' id='selectedColour' class='colour_icons'>");
      item.style.border = '2px solid #cc0066';  
-     colourSelected = newValue--; 
+     newValue--; 
+     colourSelected = newValue;
+     console.log("colour selected number "+colourSelected+" and the colours are "+colourPalette[colourSelected][0]+"/"+colourPalette[colourSelected][1]+"/"+colourPalette[colourSelected][2]+"/"+colourPalette[colourSelected][3]+"/"+colourPalette[colourSelected][4]+"/"+colourPalette[colourSelected][5])
  }
 
 /**
- * deselect the chart in the selection process
+ * deselect the colours in the selection process
  *
  *
  */
@@ -156,46 +184,7 @@ function setupPage() {
      $( ".colour_icons" ).css( "border", "none" )     
  }
 
-
-
-/**
- * confirm the chart in the selection process
- *
- *
- */
- function confirmChartColour() {
-    /*
-    let name = $("#chartTypeSelectionTitle").html();
-    let newValue ="";
-    switch (name) {
-        case "Bar Chart" :
-            newValue = "bar_icon";
-          break;
-          case "Stack Chart":
-            newValue = "stack_icon";
-          break;
-          case "Pie Chart":
-            newValue = "pie_icon";
-          break;
-          case "Radar Chart":
-            newValue = "radar_icon";
-          break;
-          case "Line Chart":
-            newValue = "line_icon";
-          break;
-          case "Bubble Chart":
-            newValue = "bubble_icon";
-          break;
-        default:
- }
-    $( ".colour_icons" ).css( "border", "none" );
-    $("#"+newValue).css( "border", "2px solid #cc0066");
-     $("#chart_style_label").html(name);
-     chartStyle = newValue; 
-     */
-}
-
-
+ //-----------------------------------------------------------------------------------------------------//
 
 /**
  * Start the process of creating a new chart
@@ -229,13 +218,15 @@ function startNew() {
     $(".deselect_colour").click(function () {
         unHighlightColour();
     });
-    $(".confirm_colour").click(function () {
-        confirmChartColour();
+     $( "#chartBackground" ).change(function() {
+      chartBackgroundColor = chartBackground.value;
     });
     $("#gotoStep3").click(function () {
         customizeChart();
     });
 }
+
+//-------------------------------------------------------------------------//
 
 
 /**
@@ -249,6 +240,8 @@ function startNew() {
 function exportChart() {
     console.log("export chart");
 }
+
+//---------------------------------------------------------------------------//
 
 
 /**
@@ -266,10 +259,10 @@ function needHelp() {
     $("#main_display").hide();
 }
 
-
+//------------------------------------------------------------------------//
 
 /**
- * Start the process of creating a new table
+ * Start the process of creating a new table to insert the data manually
  *
  *change menu's display to visible
  *hide the instructions
@@ -310,6 +303,8 @@ function createTable(myRows, myColumns) {
 
 }
 
+//--------------------------------------------------------------------------------//
+
 
 /**
  * Take the title from the menu and save it in a variable and display it during the creation process
@@ -323,6 +318,8 @@ function createTable(myRows, myColumns) {
     chartTitle = $("#chartTitle").val();
     $("#chart_title").html(chartTitle);
 }
+
+//--------------------------------------------------------------------//
 
 
 /**
