@@ -52,6 +52,160 @@
   <!-- This div contains the menu, the main_container and the footer-->
   <div class="central_display reset row no-gutters h85">
 
+    <!-- This div contains the instructions -->
+    <div id="Instructions" class="main_container reset col-8 inline h100 center">
+      <h1 class="reset center">Easy Chart</h1>
+      <div id="slider" class="slider reset center loaded">
+        <div class="wrapper">
+          <div id="items" class="items">
+            <img class="slide" src="/assets/images/fake_instructions_1.jpg">Slide 1</img>
+            <img class="slide" src="/assets/images/fake_instructions_2.jpg">Slide 2</img>
+            <img class="slide" src="/assets/images/fake_instructions_3.jpg">Slide 3</img>
+          </div>
+        </div>
+        <a id="prev" class="control_carousel prev_slide"><i class="fas fa-chevron-left"></i></a>
+        <a id="next" class="control_carousel next_slide"><i class="fas fa-chevron-right"></i></a>
+      </div>
+
+    </div>
+
+    <!-- This div contains the chart's creation menu step 1 -->
+
+    <div id="chart_menu_step_1" class="menu chart_menu reset col-4 h100">
+      <h2 class="w-100 underline">Your Chart</h2>
+      <form autocomplete="off">
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <div class="dropdown underline">
+              <label id="chart_style_label" for="chart_selection" class="data_menu_item reset w-50">Select your chart
+                style</label>
+              <button type="button" id="chart_selection" class="data_menu_button right" data-toggle="modal"
+                data-target="#chartTypeSelection">Choose</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- This the modal with for the selection of the chart style -->
+
+        <div class="modal fade" id="chartTypeSelection" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header gold">
+                <h5 class="modal-title" id="chartTypeSelectionTitle">Chart Style</h5>
+                <button type="button" class="close deselect_icons" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <div class="row espace">
+                    <div class="col-md-4"><img src="/assets/images/icons/bar_icon2.jpg" alt="" id="bar_icon"
+                        class="chart_icons"></div>
+                    <div class="col-md-4"><img src="/assets/images/icons/bar_icon.jpg" alt="" id="stack_icon"
+                        class="chart_icons"></div>
+                    <div class="col-md-4"><img src="/assets/images/icons/bubble_icon.jpg" alt="" id="bubble_icon"
+                        class="chart_icons"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4"><img src="/assets/images/icons/line_icon.jpg" alt="" id="line_icon"
+                        class="chart_icons"></div>
+                    <div class="col-md-4"><img src="/assets/images/icons/pie_icon.jpg" alt="" id="pie_icon"
+                        class="chart_icons"></div>
+                    <div class="col-md-4"><img src="/assets/images/icons/radar_icon.jpg" alt="" id="radar_icon"
+                        class="chart_icons"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary deselect_icons" data-dismiss="modal">Close</button>
+                <button type="button" class="btn gold confirm_chart" data-dismiss="modal">Confirm selection </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <div class="dropdown underline">
+              <label id="chart_colour_label" for="colour_selection" class="data_menu_item reset w-50">Select the
+                colours</label>
+              <button type="button" id="colour_selection" class="data_menu_button right" data-toggle="modal"
+                data-target="#chartColourSelection">Choose</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- This is the modal for the colour selection-->
+
+        <div class="modal fade" id="chartColourSelection" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="chartColourSelectionTitle">Select the colours</h5>
+                <button type="button" class="close deselect_colour" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <div class="row espace">
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_1.jpg" alt="" id="colour1"
+                        class="colour_icons"></div>
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_2.jpg" alt="" id="colour2"
+                        class="colour_icons"></div>
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_3.jpg" alt="" id="colour3"
+                        class="colour_icons"></div>
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_4.jpg" alt="" id="colour4"
+                        class="colour_icons"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_5.jpg" alt="" id="colour5"
+                        class="colour_icons"></div>
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_6.jpg" alt="" id="colour6"
+                        class="colour_icons"></div>
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_7.jpg" alt="" id="colour7"
+                        class="colour_icons"></div>
+                    <div class="col-md-3"><img src="/assets/images/colours/colour_8.jpg" alt="" id="colour8"
+                        class="colour_icons"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary deselect_colour" data-dismiss="modal">Close</button>
+                <button type="button" class="btn gold confirm_colour" data-dismiss="modal">Confirm selection </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-12 reset underline espace">
+          <label for="chartBackground" class="data_menu_item reset w-50">Background Colour</label>
+          <input type="color" class="form-control reset data_menu_value" id="chartBackground" value="#ffffff">
+        </div>
+
+
+        <div class="form-group">
+          <label for="chartDescription" class="data_menu_item reset w-50">Description</label>
+          <textarea type="text" class="form-control reset data_menu_textarea w-100" id="chartDescription"
+            placeholder="This is the description that appears beside the chart"></textarea>
+        </div>
+
+
+        <div class="form-group col-md-12 reset underline espace">
+          <label for="descriptionPosition" class="data_menu_item reset w-50">Description position</label>
+          <select id="descriptionPosition" class="form-control reset data_menu_value w-25">
+            <option selected>Bottom</option>
+            <option>Left</option>
+            <option>Right</option>
+            <option>Top</option>
+          </select>
+        </div>
+
+        <button id="gotoStep2" type="button" class="btn data_menu_button right">Next</button>
+      </form>
+    </div>
+
     <!-- This div contains the chart's creation menu step 2 -->
 
     <div id="chart_menu_step_2" class="menu chart_menu reset col-4 h100">
@@ -101,156 +255,28 @@
         </div>
 
         <button id="create_table" type="button" class="btn data_menu_button">Create table</button>
-        <button id="gotoStep3" type="button" class="btn data_menu_button right">Next</button>
+        <button id="gotoStep3" type="button" class="btn data_menu_button right">Create Chart</button>
       </form>
     </div>
 
-    <!-- This div contains the chart's creation menu step 1 -->
+    <!-- This div contains the chart's creation menu step 2 -->
 
-    <div id="chart_menu_step_1" class="menu chart_menu reset col-4 h100">
+    <div id="chart_menu_step_3" class="menu chart_menu reset col-4 h100">
       <h2 class="w-100 underline">Your Chart</h2>
-      <form autocomplete="off">
-        <div class="form-row">
-          <div class="form-group col-md-12">
-            <div class="dropdown underline">
-              <label id="chart_style_label" for="chart_selection" class="data_menu_item reset w-50">Select your chart style</label>
-              <button type="button" id="chart_selection" class="data_menu_button right" data-toggle="modal"
-                data-target="#chartTypeSelection">Choose</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- This the modal with for the selection of the chart style -->
-
-        <div class="modal fade" id="chartTypeSelection" tabindex="-1" role="dialog">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header gold">
-                <h5 class="modal-title" id="chartTypeSelectionTitle">Chart Style</h5>
-                <button type="button" class="close deselect_icons" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class="container-fluid">
-                  <div class="row espace">
-                    <div class="col-md-4"><img src="/assets/images/icons/bar_icon2.jpg" alt="" id="bar_icon" class="chart_icons"></div>
-                    <div class="col-md-4"><img src="/assets/images/icons/bar_icon.jpg" alt=""  id="stack_icon" class="chart_icons"></div>
-                    <div class="col-md-4"><img src="/assets/images/icons/bubble_icon.jpg" alt=""  id="bubble_icon" class="chart_icons"></div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-4"><img src="/assets/images/icons/line_icon.jpg" alt=""  id="line_icon" class="chart_icons"></div>
-                    <div class="col-md-4"><img src="/assets/images/icons/pie_icon.jpg" alt=""  id="pie_icon" class="chart_icons"></div>
-                    <div class="col-md-4"><img src="/assets/images/icons/radar_icon.jpg" alt=""  id="radar_icon" class="chart_icons"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary deselect_icons" data-dismiss="modal">Close</button>
-                <button type="button" class="btn gold confirm_chart" data-dismiss="modal">Confirm selection </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="form-row">
-          <div class="form-group col-md-12">
-            <div class="dropdown underline">
-              <label id="chart_colour_label" for="colour_selection" class="data_menu_item reset w-50">Select the colours</label>
-              <button type="button" id="colour_selection" class="data_menu_button right" data-toggle="modal"
-                data-target="#chartColourSelection">Choose</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- This is the modal for the colour selection-->
-
-        <div class="modal fade" id="chartColourSelection" tabindex="-1" role="dialog">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="chartColourSelectionTitle">Select the colours</h5>
-                <button type="button" class="close deselect_colour" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class="container-fluid">
-                  <div class="row espace">
-                    <div class="col-md-3"><img src="/assets/images/colours/colour_1.jpg" alt="" id="colour1" class="colour_icons"></div>
-                    <div class="col-md-3"><img src="/assets/images/colours/colour_2.jpg" alt="" id="colour2" class="colour_icons"></div>
-                    <div class="col-md-3"><img src="/assets/images/colours/colour_3.jpg" alt="" id="colour3" class="colour_icons"></div>
-                    <div class="col-md-3"><img src="/assets/images/colours/colour_4.jpg" alt="" id="colour4" class="colour_icons"></div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-3"><img src="/assets/images/colours/colour_5.jpg" alt="" id="colour5" class="colour_icons"></div>
-                    <div class="col-md-3"><img src="/assets/images/colours/colour_6.jpg" alt="" id="colour6" class="colour_icons"></div>
-                    <div class="col-md-3"><img src="/assets/images/colours/colour_7.jpg" alt="" id="colour7" class="colour_icons"></div>
-                    <div class="col-md-3"><img src="/assets/images/colours/colour_8.jpg" alt="" id="colour8" class="colour_icons"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary deselect_colour" data-dismiss="modal">Close</button>
-                <button type="button" class="btn gold confirm_colour" data-dismiss="modal">Confirm selection </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-    <div class="form-group col-md-12 reset underline espace">
-      <label for="chartBackground" class="data_menu_item reset w-50">Background Colour</label>
-      <input type="color" class="form-control reset data_menu_value" id="chartBackground" value="#ffffff">
+     
     </div>
 
-
-    <div class="form-group">
-      <label for="chartDescription" class="data_menu_item reset w-50">Description</label>
-      <textarea type="text" class="form-control reset data_menu_textarea w-100" id="chartDescription"
-        placeholder="This is the description that appears beside the chart"></textarea>
-    </div>
-
-
-    <div class="form-group col-md-12 reset underline espace">
-      <label for="descriptionPosition" class="data_menu_item reset w-50">Description position</label>
-      <select id="descriptionPosition" class="form-control reset data_menu_value w-25">
-        <option selected>Bottom</option>
-        <option>Left</option>
-        <option>Right</option>
-        <option>Top</option>
-      </select>
-    </div>
-
-    <button id="gotoStep2" type="button" class="btn data_menu_button right">Next</button>
-    </form>
-  </div>
-
-  <!-- This div contains the instructions -->
-  <div id="Instructions" class="main_container reset col-8 inline h100 center">
-    <h1 class="reset center">Easy Chart</h1>
-    <div id="slider" class="slider reset center loaded">
-      <div class="wrapper">
-        <div id="items" class="items">
-          <img class="slide" src="/assets/images/fake_instructions_1.jpg">Slide 1</img>
-          <img class="slide" src="/assets/images/fake_instructions_2.jpg">Slide 2</img>
-          <img class="slide" src="/assets/images/fake_instructions_3.jpg">Slide 3</img>
-        </div>
+    <!-- This div contains the data for the chart or the chart itself depending the step of the creation's process -->
+    <div id="main_display" class="main_container reset col-8 inline vh-100 center hidden">
+      <h1 id="chart_title" class="reset center">Chart Title</h1>
+      <div id="data_chart" class="reset center loaded h-75">
+        <div id="myTable"></div>
       </div>
-      <a id="prev" class="control_carousel prev_slide"><i class="fas fa-chevron-left"></i></a>
-      <a id="next" class="control_carousel next_slide"><i class="fas fa-chevron-right"></i></a>
+      
+      <div id="theChart" class="reset center loaded h-75">
+        <canvas id="myChart" width="400" height="400"></canvas>
+      </div>
     </div>
-
-  </div>
-
-  <!-- This div contains the data for the chart or the chart itself depending the step of the creation's process -->
-  <div id="main_display" class="main_container reset col-8 inline vh-100 center hidden">
-    <h1 id="chart_title" class="reset center">Chart Title</h1>
-    <div id="data_chart" class="reset center loaded h-75">
-      <div id="myTable"></div>
-    </div>
-
-  </div>
 
   </div>
   <!-- This footer contains links and information about the application -->

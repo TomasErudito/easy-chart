@@ -199,8 +199,11 @@ function startNew() {
 
     console.log("start new chart");
     $("#chart_menu_step_1").show();
+    $("#chart_menu_step_2").hide();
+    $("#chart_menu_step_3").hide();
     $("#Instructions").hide();
     $("#main_display").show();
+    $("#theChart").hide();
     $("#chart_selection").click(function(){
         unHighlightIcon();
     })
@@ -344,6 +347,7 @@ function customizeChart() {
     $("#chart_menu_step_2").show();
     $("#Instructions").hide();
     $("#main_display").show();
+    $("#theChart").hide();
     $("#viewfile").click(function () {
         ExportToTable();
     });
@@ -354,6 +358,113 @@ function customizeChart() {
         createTable(nRows.value, nColumns.value);
     });
     $("#gotoStep3").click(function () {
-        customizeChart();
+        createChart();
     });
-}
+};
+
+
+//--------------------------------------------------------------------//
+
+
+/**
+ * Select chart style
+ *
+ *change menu's display to visible
+ *hide the instructions
+ *display the data / chart preview
+ *
+ */
+ function createChart() {
+  console.log("create chart");
+  
+  $("#chart_menu_step_1").hide();
+  $("#chart_menu_step_2").hide();
+  $("#chart_menu_step_3").show();
+  $("#Instructions").hide();
+  $("#main_display").show();
+  $("#data_chart").hide();
+  $("#theChart").show();
+  drawChart();
+  $("#viewfile").click(function () {
+      ExportToTable();
+  });
+  $("#chartTitle").on("input", function() {
+      titleCreation(); 
+   });
+  $("#create_table").click(function () {
+      createTable(nRows.value, nColumns.value);
+  });
+  $("#gotoStep3").click(function () {
+      createChart();
+  });
+};
+//------------------------------------------------------------------------//
+
+
+
+
+/**
+ * This function get the values for the headers from the table
+ *
+ *
+ */
+function getHeaders(){
+
+  
+  let myHeaders = [];
+  return myHeaders;
+};
+
+
+
+
+
+
+//------------------------------------------------------------------------//
+
+/**
+ * This function draw the chart with the values send in the object values and use the headers from the array headers
+ *
+ *
+ */
+ function drawChart(){
+  alert("columns: "+columnsNumber+"/ rows: "+rowsNumber+"/ style: "+chartStyle+"/ colours selected: "+colourPalette[colourSelected]+"/ ")
+  let headers = getHeaders();
+  let values = getValues();
+
+  const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: myHeaders,
+          datasets: [{
+              label: headers,
+              data: values,
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+  };
+  
