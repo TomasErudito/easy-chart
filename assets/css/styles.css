@@ -359,3 +359,10 @@ width: 90%;
     text-align: center;
     border-collapse: initial;
 }
+
+
+/*canvas------/-----chart-------------*/
+
+#myChart{
+    max-height: 400px!important;
+}

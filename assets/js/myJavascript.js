@@ -23,7 +23,6 @@ let chartBackgroundColor;
 let chartDescription;
 let descriptionPosition;
 
-
 //----------------------------------------------------------------------------------//
 /**
  * start the setup once the document is ready
@@ -385,17 +384,8 @@ function customizeChart() {
   $("#data_chart").hide();
   $("#theChart").show();
   drawChart();
-  $("#viewfile").click(function () {
-      ExportToTable();
-  });
-  $("#chartTitle").on("input", function() {
-      titleCreation(); 
-   });
-  $("#create_table").click(function () {
-      createTable(nRows.value, nColumns.value);
-  });
-  $("#gotoStep3").click(function () {
-      createChart();
+  $("#exportChart").click(function () {
+      exportChart();
   });
 };
 //------------------------------------------------------------------------//
@@ -411,11 +401,22 @@ function customizeChart() {
 function getHeaders(){
 
   
-  let myHeaders = [];
+  let myHeaders = ["one", "two", "three"];
   return myHeaders;
 };
 
 
+/**
+ * This function get the values from the table
+ *
+ *
+ */
+ function getValues(){
+
+  
+    let myHeaders = [1, 2, 3];
+    return myHeaders;
+  };
 
 
 
@@ -428,43 +429,45 @@ function getHeaders(){
  *
  */
  function drawChart(){
-  alert("columns: "+columnsNumber+"/ rows: "+rowsNumber+"/ style: "+chartStyle+"/ colours selected: "+colourPalette[colourSelected]+"/ ")
+  //alert("columns: "+columnsNumber+"/ rows: "+rowsNumber+"/ style: "+chartStyle+"/ colours selected: "+colourPalette[colourSelected]+"/ ")
   let headers = getHeaders();
   let values = getValues();
 
-  const myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: myHeaders,
-          datasets: [{
-              label: headers,
-              data: values,
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          scales: {
-              y: {
-                  beginAtZero: true
-              }
-          }
-      }
-  });
+
+  const ctx = document.getElementById('myChart');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
   };
   
