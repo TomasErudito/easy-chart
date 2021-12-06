@@ -10,14 +10,14 @@ let rowsNumber;
 let chartStyle;
 let colourSelected;
 let colourPalette = [
-  ["422066", "ffb85f", "ff7a5a", "00aaa0", "8ed2c9", "fcf4d9"],
-  ["218c8d", "6ccecb", "f9e559", "ef7126", "8edc9d", "473e3f"],
-  ["60bb22", "ffc200", "ff5b00", "b80028", "84002e", "4ac0f2"],
-  ["bd2031", "fdb813", "f68b1f", "f17022", "62c2cc", "eef66c"],
-  ["c5aaf5", "a3cbf1", "79bfa1", "f5a352", "fb7374", "423c40"],
-  ["ff9c00", "351330", "424254", "64908a", "e8caa4", "cc2a41"],
-  ["5e412f", "fcebb6", "78c0a8", "f07818", "f0a830", "d68189"],
-  ["f8b195", "f67280", "c06c84", "6c5b7b", "355c7d", "bf4d28"]
+  ["#422066", "#ffb85f", "#ff7a5a", "#00aaa0", "#8ed2c9", "#fcf4d9"],
+  ["#218c8d", "#6ccecb", "#f9e559", "#ef7126", "#8edc9d", "#473e3f"],
+  ["#60bb22", "#ffc200", "#ff5b00", "#b80028", "#84002e", "#4ac0f2"],
+  ["#bd2031", "#fdb813", "#f68b1f", "#f17022", "#62c2cc", "#eef66c"],
+  ["#c5aaf5", "#a3cbf1", "#79bfa1", "#f5a352", "#fb7374", "#423c40"],
+  ["#ff9c00", "#351330", "#424254", "#64908a", "#e8caa4", "#cc2a41"],
+  ["#5e412f", "#fcebb6", "#78c0a8", "#f07818", "#f0a830", "#d68189"],
+  ["#f8b195", "#f67280", "#c06c84", "#6c5b7b", "#355c7d", "#bf4d28"]
 ];
 let chartBackgroundColor;
 let chartDescription;
@@ -148,7 +148,8 @@ function setupPage() {
     $( ".chart_icons" ).css( "border", "none" );
     $("#"+newValue).css( "border", "2px solid #cc0066");
      $("#chart_style_label").html(name);
-     chartStyle = newValue; 
+     let theStyle = newValue.split("_icon");
+     chartStyle = theStyle[0]; 
 }
 
 //-----------------------------------------------------------------------------------------------------//
@@ -399,10 +400,12 @@ function customizeChart() {
  *
  */
 function getHeaders(){
-
-  
-  let myHeaders = ["one", "two", "three"];
-  return myHeaders;
+    let myHeaders = [];
+    for(i=1; i<columnsNumber; i++){
+        let newHeader = $("#header"+i).val();
+        myHeaders.push(newHeader);
+    }
+    return myHeaders;
 };
 
 
@@ -411,11 +414,27 @@ function getHeaders(){
  *
  *
  */
- function getValues(){
+ function getValues(item){
 
   
-    let myHeaders = [1, 2, 3];
-    return myHeaders;
+    let myValues = [];
+    for(i=0; i<=columnsNumber; i++){
+        let newValue = $("#data_"+ item + i).val();
+        myValues.push(newValue);
+    }
+    return myValues;
+  };
+
+
+/**
+ * This function get the values for the series from the table
+ *
+ *
+ */
+ function getSeries(i){
+
+  let newSerie = $("#serie"+ i).val();
+    return newSerie;
   };
 
 
@@ -430,34 +449,28 @@ function getHeaders(){
  */
  function drawChart(){
   //alert("columns: "+columnsNumber+"/ rows: "+rowsNumber+"/ style: "+chartStyle+"/ colours selected: "+colourPalette[colourSelected]+"/ ")
+  
+  let nSeries;
+  if(chartStyle=="pie"){
+      nSeries = 1;
+  }else{
+      nSeries = rowsNumber;
+  }
   let headers = getHeaders();
-  let values = getValues();
-
+  let values = getValues(nSeries);
+  let colours =  colourPalette[colourSelected];
+  let label = getSeries(nSeries);
 
   const ctx = document.getElementById('myChart');
 const myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'pie',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: headers,
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
+            label: label,
+            data: values,
+            backgroundColor: colours.slice(0, columnsNumber),
+            borderColor: colours,
             borderWidth: 1
         }]
     },

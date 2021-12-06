@@ -108,7 +108,7 @@ function createTableXls(jsondata, tableid) {
     let myRows = jsondata.length;
     let myColumns = columns.length;
 
-    columnsNumber = myColumns;
+    columnsNumber = myColumns ;
     rowsNumber = myRows;
 
 
@@ -118,7 +118,7 @@ function createTableXls(jsondata, tableid) {
 
     for (h = 1; h < myColumns; h++){
         let headerValue = columns[h];  
-        myHTML += "<th align=center> <input type='text' class='reset table_input' id='header" + (h + 1) +"' name='header" + (h + 1) +"' value='" + headerValue + "'></th>";
+        myHTML += "<th align=center> <input type='text' class='reset table_input' id='header" + (h) +"' name='header" + (h) +"' value='" + headerValue + "'></th>";
     }
     myHTML += "</tr>";
 
