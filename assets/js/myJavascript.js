@@ -348,6 +348,13 @@ function customizeChart() {
     $("#Instructions").hide();
     $("#main_display").show();
     $("#theChart").hide();
+    $( "#nRows" ).change(function() {
+     if(chartStyle=="pie" && $( "#nRows" ).val()>1){
+        $( "#nRows" ).val(1);
+         let message = "The pie chart can only have 1 row."
+         myAlert(message);
+     }
+   });
     $("#viewfile").click(function () {
         ExportToTable();
     });
@@ -483,4 +490,15 @@ const myChart = new Chart(ctx, {
     }
 });
   };
+
+
+ /**
+ * This function opens the alert modal and display the alert message
+ *
+ *
+ */
+ function myAlert(message) {
+     $("#alertContent").html("<h2>"+message+"</h2>");
+     $("#myAlert").modal('show');
+ }
   
