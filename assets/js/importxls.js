@@ -125,14 +125,15 @@ function createTableXls(jsondata, tableid) {
     for (i = 0; i < myRows; i++) {
         myHTML += "<tr>";
 
-        for (j = 0; j < myColumns; j++) {
+
+        for (j = 0; j <myColumns; j++) {
             
             let cellValue = jsondata[i][columns[j]];
             
             if(j == 0){
                 myHTML += "<td align=center class='table_serie'> <input type='text' class='reset table_input ' id='serie" + (i + 1)+"' name='serie" + (i + 1)+"' value='" + cellValue + "'></td>";
             }else{
-                myHTML += "<td align=center> <input type='text' class='reset table_input' id='data_" + (i + 1) + (j + 1) +"' name='data_" + (i + 1) + (j + 1) +"' value='" + cellValue + "'></td>";
+                myHTML += "<td align=center> <input type='text' class='reset table_input' id='data_" + (i + 1) + (j) +"' name='data_" + (i + 1) + (j) +"' value='" + cellValue + "'></td>";
             }
 
             //myHTML += "<td align=center id='" + (i + 1) + (j + 1) +"'>" + cellValue + "</td>";

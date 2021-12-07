@@ -401,7 +401,7 @@ function customizeChart() {
  */
 function getHeaders(){
     let myHeaders = [];
-    for(i=1; i<columnsNumber; i++){
+    for(i=1; i<=columnsNumber; i++){
         let newHeader = $("#header"+i).val();
         myHeaders.push(newHeader);
     }
@@ -418,7 +418,7 @@ function getHeaders(){
 
   
     let myValues = [];
-    for(i=0; i<=columnsNumber; i++){
+    for(i=1; i<=columnsNumber; i++){
         let newValue = $("#data_"+ item + i).val();
         myValues.push(newValue);
     }
