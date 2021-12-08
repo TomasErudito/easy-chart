@@ -10,14 +10,14 @@ let rowsNumber;
 let chartStyle;
 let colourSelected;
 let colourPalette = [
-  ["#422066", "#ffb85f", "#ff7a5a", "#00aaa0", "#8ed2c9", "#fcf4d9"],
-  ["#218c8d", "#6ccecb", "#f9e559", "#ef7126", "#8edc9d", "#473e3f"],
-  ["#60bb22", "#ffc200", "#ff5b00", "#b80028", "#84002e", "#4ac0f2"],
-  ["#bd2031", "#fdb813", "#f68b1f", "#f17022", "#62c2cc", "#eef66c"],
-  ["#c5aaf5", "#a3cbf1", "#79bfa1", "#f5a352", "#fb7374", "#423c40"],
-  ["#ff9c00", "#351330", "#424254", "#64908a", "#e8caa4", "#cc2a41"],
-  ["#5e412f", "#fcebb6", "#78c0a8", "#f07818", "#f0a830", "#d68189"],
-  ["#f8b195", "#f67280", "#c06c84", "#6c5b7b", "#355c7d", "#bf4d28"]
+    ["#422066", "#ffb85f", "#ff7a5a", "#00aaa0", "#8ed2c9", "#fcf4d9"],
+    ["#218c8d", "#6ccecb", "#f9e559", "#ef7126", "#8edc9d", "#473e3f"],
+    ["#60bb22", "#ffc200", "#ff5b00", "#b80028", "#84002e", "#4ac0f2"],
+    ["#bd2031", "#fdb813", "#f68b1f", "#f17022", "#62c2cc", "#eef66c"],
+    ["#c5aaf5", "#a3cbf1", "#79bfa1", "#f5a352", "#fb7374", "#423c40"],
+    ["#ff9c00", "#351330", "#424254", "#64908a", "#e8caa4", "#cc2a41"],
+    ["#5e412f", "#fcebb6", "#78c0a8", "#f07818", "#f0a830", "#d68189"],
+    ["#f8b195", "#f67280", "#c06c84", "#6c5b7b", "#355c7d", "#bf4d28"]
 ];
 let chartBackgroundColor;
 let chartDescription;
@@ -71,47 +71,47 @@ function setupPage() {
  *
  *
  */
- function highlightIcon(item) {
+function highlightIcon(item) {
     let name = item.id;
     let newValue;
     switch (name) {
         case "bar_icon":
             newValue = "Bar Chart";
-          break;
-          case "stack_icon":
+            break;
+        case "stack_icon":
             newValue = "Stack Chart";
-          break;
-          case "pie_icon":
+            break;
+        case "pie_icon":
             newValue = "Pie Chart";
-          break;
-          case "radar_icon":
+            break;
+        case "radar_icon":
             newValue = "Radar Chart";
-          break;
-          case "line_icon":
+            break;
+        case "line_icon":
             newValue = "Line Chart";
-          break;
-          case "bubble_icon":
+            break;
+        case "bubble_icon":
             newValue = "Bubble Chart";
-          break;
+            break;
         default:
             newValue = "Chart Style";
-       
- }
-    $( ".chart_icons" ).css( "border", "none" );
+
+    }
+    $(".chart_icons").css("border", "none");
     $("#chartTypeSelectionTitle").html(newValue);
-     item.style.border = '2px solid #cc0066';  
- }
+    item.style.border = '2px solid #cc0066';
+}
 
 /**
  * deselect the chart in the selection process
  *
  *
  */
- function unHighlightIcon() {
-    
-     $("#chartTypeSelectionTitle").html("Chart Style");
-     $( ".chart_icons" ).css( "border", "none" )     
- }
+function unHighlightIcon() {
+
+    $("#chartTypeSelectionTitle").html("Chart Style");
+    $(".chart_icons").css("border", "none")
+}
 
 
 
@@ -120,36 +120,36 @@ function setupPage() {
  *
  *
  */
- function confirmChartStyle() {
-    
+function confirmChartStyle() {
+
     let name = $("#chartTypeSelectionTitle").html();
-    let newValue ="";
+    let newValue = "";
     switch (name) {
-        case "Bar Chart" :
+        case "Bar Chart":
             newValue = "bar_icon";
-          break;
-          case "Stack Chart":
+            break;
+        case "Stack Chart":
             newValue = "stack_icon";
-          break;
-          case "Pie Chart":
+            break;
+        case "Pie Chart":
             newValue = "pie_icon";
-          break;
-          case "Radar Chart":
+            break;
+        case "Radar Chart":
             newValue = "radar_icon";
-          break;
-          case "Line Chart":
+            break;
+        case "Line Chart":
             newValue = "line_icon";
-          break;
-          case "Bubble Chart":
+            break;
+        case "Bubble Chart":
             newValue = "bubble_icon";
-          break;
+            break;
         default:
- }
-    $( ".chart_icons" ).css( "border", "none" );
-    $("#"+newValue).css( "border", "2px solid #cc0066");
-     $("#chart_style_label").html(name);
-     let theStyle = newValue.split("_icon");
-     chartStyle = theStyle[0]; 
+    }
+    $(".chart_icons").css("border", "none");
+    $("#" + newValue).css("border", "2px solid #cc0066");
+    $("#chart_style_label").html(name);
+    let theStyle = newValue.split("_icon");
+    chartStyle = theStyle[0];
 }
 
 //-----------------------------------------------------------------------------------------------------//
@@ -162,30 +162,30 @@ function setupPage() {
  *
  *
  */
- function highlightColour(item) {
+function highlightColour(item) {
     let name = item.id;
     let newValue = name.charAt(6);
-       
-    $( ".colour_icons" ).css( "border", "none" );
-    $("#chart_colour_label").html("<img src='/assets/images/colours/colour_"+newValue+".jpg' alt='' id='selectedColour' class='colour_icons'>");
-     item.style.border = '2px solid #cc0066';  
-     newValue--; 
-     colourSelected = newValue;
-     console.log("colour selected number "+colourSelected+" and the colours are "+colourPalette[colourSelected][0]+"/"+colourPalette[colourSelected][1]+"/"+colourPalette[colourSelected][2]+"/"+colourPalette[colourSelected][3]+"/"+colourPalette[colourSelected][4]+"/"+colourPalette[colourSelected][5])
- }
+
+    $(".colour_icons").css("border", "none");
+    $("#chart_colour_label").html("<img src='/assets/images/colours/colour_" + newValue + ".jpg' alt='' id='selectedColour' class='colour_icons'>");
+    item.style.border = '2px solid #cc0066';
+    newValue--;
+    colourSelected = newValue;
+    console.log("colour selected number " + colourSelected + " and the colours are " + colourPalette[colourSelected][0] + "/" + colourPalette[colourSelected][1] + "/" + colourPalette[colourSelected][2] + "/" + colourPalette[colourSelected][3] + "/" + colourPalette[colourSelected][4] + "/" + colourPalette[colourSelected][5])
+}
 
 /**
  * deselect the colours in the selection process
  *
  *
  */
- function unHighlightColour() {
-    
-     $("#chart_colour_label").html("Select the colours");
-     $( ".colour_icons" ).css( "border", "none" )     
- }
+function unHighlightColour() {
 
- //-----------------------------------------------------------------------------------------------------//
+    $("#chart_colour_label").html("Select the colours");
+    $(".colour_icons").css("border", "none")
+}
+
+//-----------------------------------------------------------------------------------------------------//
 
 /**
  * Start the process of creating a new chart
@@ -204,7 +204,7 @@ function startNew() {
     $("#Instructions").hide();
     $("#main_display").show();
     $("#theChart").hide();
-    $("#chart_selection").click(function(){
+    $("#chart_selection").click(function () {
         unHighlightIcon();
     })
     $(".chart_icons").click(function () {
@@ -222,15 +222,16 @@ function startNew() {
     $(".deselect_colour").click(function () {
         unHighlightColour();
     });
-     $( "#chartBackground" ).change(function() {
-      chartBackgroundColor = this.value;
+    $("#chartBackground").change(function () {
+        chartBackgroundColor = this.value;
+        $("#myChart").css("background-color", chartBackgroundColor);
     });
-    $( "#descriptionPosition" ).change(function() {
-     descriptionPosition = this.value;
-   });
-   $( "#chartDescription" ).change(function() {
-    chartDescription = this.value;
-  });
+    $("#descriptionPosition").change(function () {
+        descriptionPosition = this.value;
+    });
+    $("#chartDescription").change(function () {
+        chartDescription = this.value;
+    });
     $("#gotoStep2").click(function () {
         customizeChart();
     });
@@ -279,7 +280,7 @@ function needHelp() {
  *display the data / chart preview
  *
  */
-function createTable(myRows, myColumns) { 
+function createTable(myRows, myColumns) {
 
     columnsNumber = myColumns;
     rowsNumber = myRows;
@@ -291,22 +292,22 @@ function createTable(myRows, myColumns) {
     let myHTML = "<form autocomplete='off'><table class='main_table h-75'>";
 
     for (i = 1; i <= myRows; i++) {
-            myHTML += "<tr>";
+        myHTML += "<tr>";
         for (j = 1; j <= myColumns; j++) {
-        if(i === 1 && j === 1){
-            myHTML += "<th align=center> </th>";
-        }else if(i === 1){
-            myHTML += "<th align=center> <input type='text' class='reset table_input'  id='header" + (j - 1) +"' name='header" + (j - 1) +"' value='value " + (j - 1) + "'></th>";
-        }else{
-            if(j === 1){
-                myHTML += "<td align=center class='table_serie'> <input type='text' class='reset table_input ' id='serie" + (i - 1)+"' name='serie" + (i - 1)+"' value='serie " + (i - 1) + "'></td>";
-            }else{
-            myHTML += "<td align=center> <input type='text' class='reset table_input' id='data_" + (i - 1) + (j - 1) +"' name='data_" + (i - 1) + (j - 1) +"'></td>";
-            }
+            if (i === 1 && j === 1) {
+                myHTML += "<th align=center> </th>";
+            } else if (i === 1) {
+                myHTML += "<th align=center> <input type='text' class='reset table_input'  id='header" + (j - 1) + "' name='header" + (j - 1) + "' value='value " + (j - 1) + "'></th>";
+            } else {
+                if (j === 1) {
+                    myHTML += "<td align=center class='table_serie'> <input type='text' class='reset table_input ' id='serie" + (i - 1) + "' name='serie" + (i - 1) + "' value='serie " + (i - 1) + "'></td>";
+                } else {
+                    myHTML += "<td align=center> <input type='text' class='reset table_input' id='data_" + (i - 1) + (j - 1) + "' name='data_" + (i - 1) + (j - 1) + "'></td>";
+                }
+            };
+
         };
-           
-        };
-         myHTML += "</tr>";
+        myHTML += "</tr>";
     }
     myHTML += "</table></form>";
     document.getElementById("myTable").innerHTML = myHTML;
@@ -324,7 +325,7 @@ function createTable(myRows, myColumns) {
  *display the data / chart preview
  *
  */
- function titleCreation() {
+function titleCreation() {
     chartTitle = $("#chartTitle").val();
     $("#chart_title").html(chartTitle);
 }
@@ -342,25 +343,25 @@ function createTable(myRows, myColumns) {
  */
 function customizeChart() {
     console.log("customize chart");
-    
+
     $("#chart_menu_step_1").hide();
     $("#chart_menu_step_2").show();
     $("#Instructions").hide();
     $("#main_display").show();
     $("#theChart").hide();
-    $( "#nRows" ).change(function() {
-     if(chartStyle=="pie" && $( "#nRows" ).val()>1){
-        $( "#nRows" ).val(1);
-         let message = "The pie chart can only have 1 row."
-         myAlert(message);
-     }
-   });
+    $("#nRows").change(function () {
+        if (chartStyle == "pie" && $("#nRows").val() > 1) {
+            $("#nRows").val(1);
+            let message = "The pie chart can only have 1 row."
+            myAlert(message);
+        }
+    });
     $("#viewfile").click(function () {
         ExportToTable();
     });
-    $("#chartTitle").on("input", function() {
-        titleCreation(); 
-     });
+    $("#chartTitle").on("input", function () {
+        titleCreation();
+    });
     $("#create_table").click(function () {
         createTable(nRows.value, nColumns.value);
     });
@@ -381,20 +382,20 @@ function customizeChart() {
  *display the data / chart preview
  *
  */
- function createChart() {
-  console.log("create chart");
-  
-  $("#chart_menu_step_1").hide();
-  $("#chart_menu_step_2").hide();
-  $("#chart_menu_step_3").show();
-  $("#Instructions").hide();
-  $("#main_display").show();
-  $("#data_chart").hide();
-  $("#theChart").show();
-  drawChart();
-  $("#exportChart").click(function () {
-      exportChart();
-  });
+function createChart() {
+    console.log("create chart");
+
+    $("#chart_menu_step_1").hide();
+    $("#chart_menu_step_2").hide();
+    $("#chart_menu_step_3").show();
+    $("#Instructions").hide();
+    $("#main_display").show();
+    $("#data_chart").hide();
+    $("#theChart").show();
+    drawChart();
+    $("#exportChart").click(function () {
+        exportChart();
+    });
 };
 //------------------------------------------------------------------------//
 
@@ -406,10 +407,10 @@ function customizeChart() {
  *
  *
  */
-function getHeaders(){
+function getHeaders() {
     let myHeaders = [];
-    for(i=1; i<=columnsNumber; i++){
-        let newHeader = $("#header"+i).val();
+    for (i = 1; i <= columnsNumber; i++) {
+        let newHeader = $("#header" + i).val();
         myHeaders.push(newHeader);
     }
     return myHeaders;
@@ -421,16 +422,16 @@ function getHeaders(){
  *
  *
  */
- function getValues(item){
+function getValues(item) {
 
-  
+
     let myValues = [];
-    for(i=1; i<=columnsNumber; i++){
-        let newValue = $("#data_"+ item + i).val();
+    for (i = 1; i <= columnsNumber; i++) {
+        let newValue = $("#data_" + item + i).val();
         myValues.push(newValue);
     }
     return myValues;
-  };
+};
 
 
 /**
@@ -438,11 +439,11 @@ function getHeaders(){
  *
  *
  */
- function getSeries(i){
+function getSeries(i) {
 
-  let newSerie = $("#serie"+ i).val();
+    let newSerie = $("#serie" + i).val();
     return newSerie;
-  };
+};
 
 
 
@@ -454,51 +455,53 @@ function getHeaders(){
  *
  *
  */
- function drawChart(){
-  //alert("columns: "+columnsNumber+"/ rows: "+rowsNumber+"/ style: "+chartStyle+"/ colours selected: "+colourPalette[colourSelected]+"/ ")
-  
-  let nSeries;
-  if(chartStyle=="pie"){
-      nSeries = 1;
-  }else{
-      nSeries = rowsNumber;
-  }
-  let headers = getHeaders();
-  let values = getValues(nSeries);
-  let colours =  colourPalette[colourSelected];
-  let label = getSeries(nSeries);
+function drawChart() {
+    //alert("columns: "+columnsNumber+"/ rows: "+rowsNumber+"/ style: "+chartStyle+"/ colours selected: "+colourPalette[colourSelected]+"/ ")
 
-  const ctx = document.getElementById('myChart');
-const myChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-        labels: headers,
-        datasets: [{
-            label: label,
-            data: values,
-            backgroundColor: colours.slice(0, columnsNumber),
-            borderColor: colours,
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
+    let nSeries;
+    if (chartStyle == "pie") {
+        nSeries = 1;
+    } else {
+        nSeries = rowsNumber;
+    }
+    let headers = getHeaders();
+    let values = getValues(nSeries);
+    let colours = colourPalette[colourSelected];
+    let label = getSeries(nSeries);
+
+    const ctx = document.getElementById('myChart');
+
+
+
+    const myChart = new Chart(ctx, {
+        type: chartStyle,
+        data: {
+            labels: headers,
+            datasets: [{
+                label: label,
+                data: values,
+                backgroundColor: colours.slice(0, columnsNumber),
+                borderColor: colours,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
             }
         }
-    }
-});
-  };
+    });
+};
 
 
- /**
+/**
  * This function opens the alert modal and display the alert message
  *
  *
  */
- function myAlert(message) {
-     $("#alertContent").html("<h2>"+message+"</h2>");
-     $("#myAlert").modal('show');
- }
-  
+function myAlert(message) {
+    $("#alertContent").html("<h2>" + message + "</h2>");
+    $("#myAlert").modal('show');
+}
