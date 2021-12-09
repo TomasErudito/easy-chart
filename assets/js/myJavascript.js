@@ -46,6 +46,10 @@ $("#chart_colour_label").html("Select the colours");
 $("#chartBackground").val("#ffffff");
 $("#chartDescription").val("");
 $("#descriptionPosition").val(1).change();
+$("#nColumns").val(1).change();
+$("#nRows").val(1).change();
+$("#chartTitle").val("Chart Title");
+$("#chart_title").html("Chart Title");
 }
 
 //----------------------------------------------------------------------------------//
@@ -374,6 +378,8 @@ function customizeChart() {
     $("#chart_menu_step_2").show();
     $("#Instructions").hide();
     $("#main_display").show();
+    $("#myTable").html("");
+    $("#data_chart").show();
     $("#theChart").hide();
     $("#nRows").change(function () {
         if (chartStyle == "pie" && $("#nRows").val() > 1) {
