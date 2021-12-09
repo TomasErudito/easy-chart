@@ -22,6 +22,31 @@ let colourPalette = [
 let chartBackgroundColor;
 let chartDescription;
 let descriptionPosition;
+const canvas = document.getElementById('myChart');
+const ctx = canvas.getContext("2d");
+
+
+/**
+ * Reset all the parameters and the canvas to starta new chart
+ *
+ *
+ */
+ function resetChart() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    chartTitle="";
+columnsNumber="";
+rowsNumber="";
+chartStyle="";
+colourSelected="";
+chartBackgroundColor="";
+chartDescription="";
+descriptionPosition="";
+$("#chart_style_label").html("Select your chart style");
+$("#chart_colour_label").html("Select the colours");
+$("#chartBackground").val("#ffffff");
+$("#chartDescription").val("");
+$("#descriptionPosition").val(1).change();
+}
 
 //----------------------------------------------------------------------------------//
 /**
@@ -198,6 +223,7 @@ function unHighlightColour() {
 function startNew() {
 
     console.log("start new chart");
+    resetChart();
     $("#chart_menu_step_1").show();
     $("#chart_menu_step_2").hide();
     $("#chart_menu_step_3").hide();
@@ -469,7 +495,7 @@ function drawChart() {
     let colours = colourPalette[colourSelected];
     let label = getSeries(nSeries);
 
-    const ctx = document.getElementById('myChart');
+    
 
 
 
