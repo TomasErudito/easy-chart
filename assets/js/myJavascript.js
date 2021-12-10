@@ -24,6 +24,7 @@ let chartDescription;
 let descriptionPosition;
 const canvas = document.getElementById('myChart');
 const ctx = canvas.getContext("2d");
+let resetChartVariable = false;
 
 
 /**
@@ -50,6 +51,7 @@ $("#nColumns").val(1).change();
 $("#nRows").val(1).change();
 $("#chartTitle").val("Chart Title");
 $("#chart_title").html("Chart Title");
+$("#myTable").html("");
 }
 
 //----------------------------------------------------------------------------------//
@@ -500,9 +502,6 @@ function drawChart() {
     let values = getValues(nSeries);
     let colours = colourPalette[colourSelected];
     let label = getSeries(nSeries);
-
-    
-
 
 
     const myChart = new Chart(ctx, {

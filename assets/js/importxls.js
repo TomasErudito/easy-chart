@@ -108,7 +108,7 @@ function createTableXls(jsondata, tableid) {
     let myRows = jsondata.length;
     let myColumns = columns.length;
 
-    columnsNumber = myColumns ;
+    columnsNumber = (myColumns - 1) ;
     rowsNumber = myRows;
 
 
