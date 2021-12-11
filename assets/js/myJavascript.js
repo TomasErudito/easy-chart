@@ -25,7 +25,7 @@ let descriptionPosition;
 const canvas = document.getElementById('myChart');
 const ctx = canvas.getContext("2d");
 let resetChartVariable = false;
-
+let readyToExport = false;
 
 /**
  * Reset all the parameters and the canvas to starta new chart
@@ -34,7 +34,7 @@ let resetChartVariable = false;
  */
  function resetChart() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    chartTitle="";
+    chartTitle="My Chart";
 columnsNumber="";
 rowsNumber="";
 chartStyle="";
@@ -230,6 +230,7 @@ function startNew() {
 
     console.log("start new chart");
     resetChart();
+    readyToExport=false;
     $("#chart_menu_step_1").show();
     $("#chart_menu_step_2").hide();
     $("#chart_menu_step_3").hide();
@@ -281,8 +282,30 @@ function startNew() {
  *
  */
 function exportChart() {
-    console.log("export chart");
+
+    var myImage = document.getElementById('myChart').toDataURL("image/png");
+
+    if(readyToExport == false){
+        let message = "The chart is not created yet, there's nothing to export"
+            myAlert(message);
+    }else{
+        let myFileName = chartTitle + ".png";
+        downloadURI("data:" + myImage, myFileName);
+    }
+};
+
+
+
+function downloadURI(uri, name) {
+    var link = document.createElement("a");
+    link.download = name;
+    link.href = uri;
+    link.click();
+    //after creating link you should delete dynamic link
+    //clearDynamicLink(link); 
 }
+
+
 
 //---------------------------------------------------------------------------//
 
@@ -418,6 +441,7 @@ function customizeChart() {
  */
 function createChart() {
     console.log("create chart");
+    readyToExport=true;
 
     $("#chart_menu_step_1").hide();
     $("#chart_menu_step_2").hide();
@@ -427,9 +451,6 @@ function createChart() {
     $("#data_chart").hide();
     $("#theChart").show();
     drawChart();
-    $("#exportChart").click(function () {
-        exportChart();
-    });
 };
 //------------------------------------------------------------------------//
 
