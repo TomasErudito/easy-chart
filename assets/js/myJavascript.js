@@ -516,7 +516,7 @@ function getSeries(i) {
  */
 function drawChart() {
     //alert("columns: "+columnsNumber+"/ rows: "+rowsNumber+"/ style: "+chartStyle+"/ colours selected: "+colourPalette[colourSelected]+"/ ")
-
+    myChart.data.datasets.length = 0;
     let nSeries;
     if (chartStyle == "pie") {
         nSeries = 1;
@@ -524,9 +524,26 @@ function drawChart() {
         nSeries = rowsNumber;
     }
     let headers = getHeaders();
-    let values = getValues(nSeries);
     let colours = colourPalette[colourSelected];
-    let label = getSeries(nSeries);
+    let label = [];
+    let allDatasets = [];
+    for(i=1; i<=nSeries; i++){
+        let newLabel = getSeries(i);
+        label.push(newLabel);
+    }
+    for(j=0; j<label.length;j++){
+        let newValue = getValues(j);
+        let newLabel = label[j];
+        let newDataset ={
+            label: newLabel,
+            data: newValue,
+            backgroundColor: (colours.slice(0, columnsNumber))+",1)",
+            borderColor: colours,
+            borderWidth: 1
+        };
+        myChart.data.datasets.push(newDataset);
+
+    }
 
 
     //this is the type of chart it works for all the types
@@ -537,39 +554,12 @@ function drawChart() {
     //the datasets and the options change with the type of chart
 
     if (chartStyle == "pie") {
-        myChart.data.datasets = [{
-            label: label,
-            data: values,
-            backgroundColor: (colours.slice(0, columnsNumber))+",1)",
-            borderColor: colours,
-            borderWidth: 1
-        }];
     } else if (chartStyle == "bar"){
-        myChart.data.datasets = [{
-            label: label,
-            data: values,
-            backgroundColor: (colours.slice(0, columnsNumber))+",1)",
-            borderColor: colours,
-            borderWidth: 1
-        }];
+        
     } else if (chartStyle == "stack"){
-        myChart.data.datasets = [{
-            label: label,
-            data: values,
-            backgroundColor: (colours.slice(0, columnsNumber))+",1)",
-            borderColor: colours,
-            borderWidth: 1
-        }];
         myChart.options.scales.x = {stacked : true};
         myChart.options.scales.y = {stacked : true};
     } else if (chartStyle == "line"){
-        myChart.data.datasets = [{
-            label: label,
-            data: values,
-            backgroundColor: (colours.slice(0, columnsNumber))+",1)",
-            borderColor: colours,
-            borderWidth: 1
-        }];
         myChart.options.tension=0;
     } else if (chartStyle == "radar"){
         myChart.data.datasets = [{
