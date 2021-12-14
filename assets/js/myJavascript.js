@@ -10,20 +10,25 @@ let rowsNumber;
 let chartStyle;
 let colourSelected;
 let colourPalette = [
-    ["rgb(66, 32, 102)", "rgb(255, 184, 95)", "rgb(255, 122, 90)", "rgb(0, 170, 160)", "rgb(142, 210, 201)", "rgb(252, 244, 217)"],
-    ["rgb(33, 140, 141)", "rgb(108, 206, 203)", "rgb(249, 229, 89)", "rgb(239, 113, 38)", "rgb(142, 220, 157)", "rgb(71, 62, 63)"],
-    ["rgb(96, 187, 34)", "rgb(255, 194, 0)", "rgb(255, 91, 0)", "rgb(184, 0, 40)", "rgb(132, 0, 46)", "rgb(74, 192, 242)"],
-    ["rgb(189, 32, 49)", "rgb(253, 184, 19)", "rgb(246, 139, 31)", "rgb(241, 112, 34)", "rgb(98, 194, 204)", "rgb(238, 246, 108)"],
-    ["rgb(197, 170, 245)", "rgb(163, 203, 241)", "rgb(121, 191, 161)", "rgb(245, 163, 82)", "rgb(251, 115, 116)", "rgb(66, 60, 64)"],
-    ["rgb(255, 156, 0)", "rgb(53, 19, 48)", "rgb(66, 66, 84)", "rgb(100, 144, 138)", "rgb(232, 202, 164)", "rgb(204, 42, 65)"],
-    ["rgb(94, 65, 47)", "rgb(252, 235, 182)", "rgb(120, 192, 168)", "rgb(240, 120, 24)", "rgb(240, 168, 48)", "rgb(214, 129, 137)"],
-    ["rgb(248, 177, 149)", "rgb(246, 114, 128)", "rgb(192, 108, 132)", "rgb(108, 91, 123)", "rgb(53, 92, 125)", "rgb(191, 77, 40)"]
+    ["rgba(66, 32, 102", "rgba(255, 184, 95", "rgba(255, 122, 90", "rgba(0, 170, 160", "rgba(142, 210, 201", "rgba(252, 244, 217"],
+    ["rgba(33, 140, 141", "rgba(108, 206, 203", "rgba(249, 229, 89", "rgba(239, 113, 38", "rgba(142, 220, 157", "rgba(71, 62, 63"],
+    ["rgba(96, 187, 34", "rgba(255, 194, 0", "rgba(255, 91, 0", "rgba(184, 0, 40", "rgba(132, 0, 46", "rgba(74, 192, 242"],
+    ["rgba(189, 32, 49", "rgba(253, 184, 19", "rgba(246, 139, 31", "rgba(241, 112, 34", "rgba(98, 194, 204", "rgba(238, 246, 108"],
+    ["rgba(197, 170, 245", "rgba(163, 203, 241", "rgba(121, 191, 161", "rgba(245, 163, 82", "rgba(251, 115, 116", "rgba(66, 60, 64"],
+    ["rgba(255, 156, 0", "rgba(53, 19, 48", "rgba(66, 66, 84", "rgba(100, 144, 138", "rgba(232, 202, 164", "rgba(204, 42, 65"],
+    ["rgba(94, 65, 47", "rgba(252, 235, 182", "rgba(120, 192, 168", "rgba(240, 120, 24", "rgba(240, 168, 48", "rgba(214, 129, 137"],
+    ["rgba(248, 177, 149", "rgba(246, 114, 128", "rgba(192, 108, 132", "rgba(108, 91, 123", "rgba(53, 92, 125", "rgba(191, 77, 40"]
 ];
-let chartBackgroundColor;
+let textMainColor;
 let chartDescription;
 let descriptionPosition;
 const canvas = document.getElementById('myChart');
 const ctx = canvas.getContext("2d");
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+    }
+});
 let resetChartVariable = false;
 let readyToExport = false;
 
@@ -33,18 +38,17 @@ let readyToExport = false;
  *
  */
  function resetChart() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
     chartTitle="My Chart";
 columnsNumber="";
 rowsNumber="";
 chartStyle="";
 colourSelected="";
-chartBackgroundColor="";
+textMainColor="";
 chartDescription="";
 descriptionPosition="";
 $("#chart_style_label").html("Select your chart style");
 $("#chart_colour_label").html("Select the colours");
-$("#chartBackground").val("#ffffff");
+$("#textColour").val("#ffffff");
 $("#chartDescription").val("");
 $("#descriptionPosition").val(1).change();
 $("#nColumns").val(1).change();
@@ -255,9 +259,9 @@ function startNew() {
     $(".deselect_colour").click(function () {
         unHighlightColour();
     });
-    $("#chartBackground").change(function () {
-        chartBackgroundColor = this.value;
-        $("#myChart").css("background-color", chartBackgroundColor);
+    $("#textColour").change(function () {
+        textMainColor = this.value;
+        $("#myChart").css("background-color", textMainColor);
     });
     $("#descriptionPosition").change(function () {
         descriptionPosition = this.value;
@@ -516,7 +520,7 @@ function drawChart() {
     let nSeries;
     if (chartStyle == "pie") {
         nSeries = 1;
-    } else {
+    }else{
         nSeries = rowsNumber;
     }
     let headers = getHeaders();
@@ -525,26 +529,62 @@ function drawChart() {
     let label = getSeries(nSeries);
 
 
-    const myChart = new Chart(ctx, {
-        type: chartStyle,
-        data: {
-            labels: headers,
-            datasets: [{
-                label: label,
-                data: values,
-                backgroundColor: colours.slice(0, columnsNumber),
-                borderColor: colours,
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+    //this is the type of chart it works for all the types
+    myChart.config.type= chartStyle;
+    //this is for the labels, it works for all EXCEPT BUBBLES
+    myChart.data.labels = headers;
+
+    //the datasets and the options change with the type of chart
+
+    if (chartStyle == "pie") {
+        myChart.data.datasets = [{
+            label: label,
+            data: values,
+            backgroundColor: (colours.slice(0, columnsNumber))+",1)",
+            borderColor: colours,
+            borderWidth: 1
+        }];
+    } else if (chartStyle == "bar"){
+        myChart.data.datasets = [{
+            label: label,
+            data: values,
+            backgroundColor: (colours.slice(0, columnsNumber))+",1)",
+            borderColor: colours,
+            borderWidth: 1
+        }];
+    } else if (chartStyle == "stack"){
+        myChart.data.datasets = [{
+            label: label,
+            data: values,
+            backgroundColor: (colours.slice(0, columnsNumber))+",1)",
+            borderColor: colours,
+            borderWidth: 1
+        }];
+        myChart.options.scales.x = {stacked : true};
+        myChart.options.scales.y = {stacked : true};
+    } else if (chartStyle == "line"){
+        myChart.data.datasets = [{
+            label: label,
+            data: values,
+            backgroundColor: (colours.slice(0, columnsNumber))+",1)",
+            borderColor: colours,
+            borderWidth: 1
+        }];
+        myChart.options.tension=0;
+    } else if (chartStyle == "radar"){
+        myChart.data.datasets = [{
+            label: label,
+            data: values,
+            backgroundColor: (colours.slice(0, columnsNumber))+",0.2)",
+            borderColor: colours,
+            borderWidth: 1,
+            fill:true,
+
+        }];
+    }
+
+    //this is the same for all the charts
+    myChart.update();
 };
 
 
