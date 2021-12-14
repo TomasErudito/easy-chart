@@ -537,7 +537,7 @@ function drawChart() {
         let newDataset ={
             label: newLabel,
             data: newValue,
-            backgroundColor: (colours.slice(0, columnsNumber))+",1)",
+            backgroundColor: colours.slice(0, columnsNumber)+",1)",
             borderColor: colours,
             borderWidth: 1
         };
@@ -550,7 +550,7 @@ function drawChart() {
     myChart.config.type= chartStyle;
     //this is for the labels, it works for all EXCEPT BUBBLES
     myChart.data.labels = headers;
-
+    console.log(myChart.data.datasets);
     //the datasets and the options change with the type of chart
 
     if (chartStyle == "pie") {
@@ -565,7 +565,7 @@ function drawChart() {
         myChart.data.datasets = [{
             label: label,
             data: values,
-            backgroundColor: (colours.slice(0, columnsNumber))+",0.2)",
+            backgroundColor: colours.slice(0, columnsNumber)+",0.2)",
             borderColor: colours,
             borderWidth: 1,
             fill:true,
