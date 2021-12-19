@@ -482,7 +482,9 @@ function getHeaders() {
  *
  */
 function getValues(item) {
-
+    if (chartStyle == "pie") {
+        item = 1;
+    }
 
     let myValues = [];
     for (i = 1; i <= columnsNumber; i++) {
@@ -537,7 +539,7 @@ function drawChart() {
         let newDataset ={
             label: newLabel,
             data: newValue,
-            backgroundColor: colours.slice(0, columnsNumber)+",1)",
+            backgroundColor: colours.slice(0, columnsNumber).concat(",1)"),
             borderColor: colours,
             borderWidth: 1
         };
