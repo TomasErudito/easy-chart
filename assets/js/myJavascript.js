@@ -533,9 +533,9 @@ function drawChart() {
         let newLabel = getSeries(i);
         label.push(newLabel);
     }
-    for(j=0; j<label.length;j++){
+    for(j=0; j<headers.length;j++){
         let newValue = getValues(j);
-        let newLabel = label[j];
+        let newLabel = headers[j];
         let newDataset ={
             label: newLabel,
             data: newValue,
@@ -551,7 +551,7 @@ function drawChart() {
     //this is the type of chart it works for all the types
     myChart.config.type= chartStyle;
     //this is for the labels, it works for all EXCEPT BUBBLES
-    myChart.data.labels = headers;
+    myChart.data.labels = label;
     console.log(myChart.data.datasets);
     //the datasets and the options change with the type of chart
 
