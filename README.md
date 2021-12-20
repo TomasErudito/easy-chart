@@ -1,108 +1,118 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1 align="center">Easy Chart Website</h1>
 
-Welcome TomasErudito,
+<p>This is a website that allows the user to create different types of charts and export them in HTML and JavaScript, to implement them in other websites, or download it in pdf format.</p>
+<br/>
+<h2 align="center"><img src="assets/images/readme_images/devices.jpg"></h2>
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+[View the live project here.](https://tomaserudito.github.io/other_speakeasy/)
+<br/><br/>
+## Project development plan<br/>
+<br/>
+<p>The development of this project has been divided following the UX five layers model:</p>
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+<ul>
+<li>Strategy: The website should allow the user to create, customize and export the chart in an easy way.</li>
+<li>Scope: The website need to answer 3 questions:</li>
+<ul>
+<li>•	What do the website does?</li>
+<li>•	Is it easy to create/customize/export the chart?</li>
+<li>•	Would the user enjoy the experience?</li>
+</ul>
+<li>Structure: The website is divided in 3 pages:</li>
+<ul>
+<li>•	Home – Presentation of the aplication and usage guide.</li>
+<li>•	Chart creation – Creation of the chart through the creation tools.</li>
+<li>•	Help – Usage guide and help to integration.</li>
+</ul>
+<li>Skeleton: The information’s organization is simple so the users can navigate easily through the content, create their chart easily, and they should be able of complete the process fast:</li>
+<ul>
+<li>•	Header with navigation menu.</li>
+<li>•	Steps explanation in the Home page.</li>
+<li>•	Easy to use creation's menu.</li>
+<li>•	Clear text / icons.</li>
+<li>•	Extra information (help / information).</li>
+</ul>
+<li>Surface: Visual design of the website.</li>
+</ul>
+<br/>
 
-## Gitpod Reminders
+## UX Goals<br/>
+<br/>
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+<h3>First Time Visitors</h3>
 
-`python3 -m http.server`
+<p>•	Should be able to answer the 3 questions we proposed, before in the scope, easily.</p>
+<p>•	Should be able to create the chart and export it easily.</p>
+<p>•	Should be comfortable creating different charts and experimenting with them.</p>
+<p>•	Should want to share the website with others.</p>
+<br/>
+<h3>Returning visitors</h3>
 
-A blue button should appear to click: _Make Public_,
+<p>•	Should be able to create the chart and export it easily.</p>
+<p>•	Should be able to create the chart fast.</p>
+<p>•	Should feel comfortable using the aplication.</p>
+<br/>
+<h3>Frequent visitors</h3>
 
-Another blue button should appear to click: _Open Browser_.
+<p>•	Should be able to create the chart fast.</p>
+<p>•	Should choose the aplication as their first choice to create charts for the web.</p>
+<br/>
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+<h3>UX solutions</h3>
+<br/>
 
-A blue button should appear to click: _Make Public_,
+<h3>First Time Visitors</h3>
 
-Another blue button should appear to click: _Open Browser_.
+<p>•	Should be able to answer the 3 questions we proposed, before in the scope, easily.</p>
+<ul>
+<li>The name of the company, logo and events' name are on each page (header, banners,..)</li>
+<li>The images show what are we offering (food, drinks, ambience,...)</li>
+<li>There are buttons to book the events on each page</li>
+</ul>
+<p>•	Should be able to create the chart and export it easily.</p>
+<ul>
+<li>The colours and the images / typography work together to create the desired feeling.</li>
+</ul>
+<p>•	Should be comfortable creating different charts and experimenting with them.</p>
+<ul>
+<li>The buttons to access the information are big and the pages are simple and tidy, so the information is clear and the process to find out more too.</li>
+</ul>
+<p>•	Should want to share the website with others.</p>
+<ul>
+<li>The website try to be elegant with nice images and visually pleasant, so the users could be tempted to share it with friends.</li>
+</ul>
+<br/>
+<h3>Returning visitors</h3>
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+<p>•	Should be able to create the chart and export it easily.</p>
+<ul>
+<li>The menus have their own page with a big button to access to them so it's easy to get them.</li>
+<li>The events have their own page too and the visitor can easily find out when are the coming up events.</li>
+</ul>
+<p>•	Should be able to create the chart fast.</p>
+<ul>
+<li>There are booking buttons on each page and the user could book without scrolling the page.</li>
+</ul>
+<p>•	Should feel comfortable using the aplication.</p>
+<ul>
+<li>The selection of colours and powerful images help to created a comfortable sensation, so the visitor can spend time on the website.</li>
+</ul>
+<br/>
+<h3>Frequent visitors</h3>
 
-To log into the Heroku toolbelt CLI:
+<p>•	Should be able to create the chart fast.</p>
+<ul>
+<li>The menus have their own page with a big button to access to them so it's easy to get them.</li>
+<li>The events have their own page too and the user can easily find out when are the coming up events.</li>
+<li>The footer of each page has links to the company's social media profiles, allowing the fequent visitor engagement with the company.</li>
+</ul>
+<p>•	Should choose the aplication as their first choice to create charts for the web.</p>
+<ul>
+<li>There are booking buttons on each page and the user could book without scrolling the page.</li>
+</ul>
+<br/>
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Design<br/>
+<br/>
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+<p>The potential customers would be people of any age, who needs to create a chart. These group of people could be professionals or students and the main reaso to create the chart should be a job or studies necessity. for this reason the website / application is designed to run in a desktop / laptop / tablet with a medium to large screen.</p>
