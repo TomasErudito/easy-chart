@@ -4,7 +4,7 @@
 <br/>
 <h2 align="center"><img src="assets/images/readme_images/devices.jpg"></h2>
 
-[View the live project here.](https://tomaserudito.github.io/other_speakeasy/)
+[View the live project here.](https://tomaserudito.github.io/easy-chart/)
 <br/><br/>
 ## Project development plan<br/>
 <br/>
