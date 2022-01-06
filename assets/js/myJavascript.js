@@ -482,12 +482,17 @@ function getHeaders() {
  *
  */
 function getValues(item) {
+    let numberValues;
     if (chartStyle == "pie") {
         item = 1;
+        numberValues = columnsNumber;
+    }else{
+        numberValues = +columnsNumber +1;
     }
-
+    
+    
     let myValues = [];
-    for (i = 1; i <= columnsNumber; i++) {
+    for (i = 1; i <= numberValues; i++) {
         let newValue = $("#data_" + item + i).val();
         myValues.push(newValue);
     }
@@ -527,15 +532,21 @@ function drawChart() {
     }
     let headers = getHeaders();
     let colours = colourPalette[colourSelected];
-    let label = [];
+    let mylabel = [];
     let allDatasets = [];
     for(i=1; i<=nSeries; i++){
         let newLabel = getSeries(i);
-        label.push(newLabel);
+        mylabel.push(newLabel);
     }
-    for(j=0; j<headers.length;j++){
+
+
+    //the datasets and the options change with the type of chart
+    
+    if (chartStyle == "pie") {
+        
+    for(j=0; j<nSeries.length;j++){
         let newValue = getValues(j);
-        let newLabel = headers[j];
+        let newLabel = mylabel[j];
         let newDataset ={
             label: newLabel,
             data: newValue,
@@ -544,19 +555,25 @@ function drawChart() {
             borderWidth: 1
         };
         myChart.data.datasets.push(newDataset);
+        //myChart.data.labels = headers;
+    }
+    } else if (chartStyle == "bar"){
+        
+    for(j=1; j<=nSeries;j++){
+        let newTempVar = +j -1;
+        let newValue = getValues(j);
+        let newLabel = headers[newTempVar];
+        let newDataset ={
+            label: newLabel,
+            data: newValue,
+            backgroundColor: colours.slice(0, columnsNumber).concat(",1)"),
+            borderColor: colours,
+            borderWidth: 1
+        };
+        myChart.data.datasets.push(newDataset);
+        myChart.data.labels = mylabel; //this is the text under each column
 
     }
-
-
-    //this is the type of chart it works for all the types
-    myChart.config.type= chartStyle;
-    //this is for the labels, it works for all EXCEPT BUBBLES
-    myChart.data.labels = label;
-    console.log(myChart.data.datasets);
-    //the datasets and the options change with the type of chart
-
-    if (chartStyle == "pie") {
-    } else if (chartStyle == "bar"){
         
     } else if (chartStyle == "stack"){
         myChart.options.scales.x = {stacked : true};
@@ -574,6 +591,14 @@ function drawChart() {
 
         }];
     }
+
+
+
+    //this is the type of chart it works for all the types
+    myChart.config.type= chartStyle;
+    //this is for the labels, it works for all EXCEPT BUBBLES
+    console.log(myChart.data.datasets);
+
 
     //this is the same for all the charts
     myChart.update();
