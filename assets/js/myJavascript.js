@@ -206,7 +206,7 @@ function highlightColour(item) {
     item.style.border = '2px solid #cc0066';
     newValue--;
     colourSelected = newValue;
-    console.log("colour selected number " + colourSelected + " and the colours are " + colourPalette[colourSelected][0] + "/" + colourPalette[colourSelected][1] + "/" + colourPalette[colourSelected][2] + "/" + colourPalette[colourSelected][3] + "/" + colourPalette[colourSelected][4] + "/" + colourPalette[colourSelected][5])
+    //console.log("colour selected number " + colourSelected + " and the colours are " + colourPalette[colourSelected][0] + "/" + colourPalette[colourSelected][1] + "/" + colourPalette[colourSelected][2] + "/" + colourPalette[colourSelected][3] + "/" + colourPalette[colourSelected][4] + "/" + colourPalette[colourSelected][5])
 }
 
 /**
@@ -232,7 +232,7 @@ function unHighlightColour() {
  */
 function startNew() {
 
-    console.log("start new chart");
+    //console.log("start new chart");
     resetChart();
     readyToExport=false;
     $("#chart_menu_step_1").show();
@@ -401,7 +401,7 @@ function titleCreation() {
  *
  */
 function customizeChart() {
-    console.log("customize chart");
+    //console.log("customize chart");
 
     $("#chart_menu_step_1").hide();
     $("#chart_menu_step_2").show();
@@ -444,7 +444,7 @@ function customizeChart() {
  *
  */
 function createChart() {
-    console.log("create chart");
+    //console.log("create chart");
     readyToExport=true;
 
     $("#chart_menu_step_1").hide();
@@ -512,6 +512,24 @@ function getSeries(i) {
 };
 
 
+/**
+ * This function get the values for the colours to use on the graph
+ *
+ *
+ */
+ function getAllColours() {
+
+    let allColours = []; 
+    for(i=0; i<rowsNumber; i++){
+        let newColour = colourPalette[colourSelected][i].concat(",1)");
+        allColours.push(newColour);
+    }
+    
+    return allColours;
+};
+
+
+
 
 
 //------------------------------------------------------------------------//
@@ -531,7 +549,14 @@ function drawChart() {
         nSeries = rowsNumber;
     }
     let headers = getHeaders();
-    let colours = colourPalette[colourSelected];
+
+    let colours;
+    if (chartStyle == "pie") {
+        colours = colourPalette[colourSelected];
+    }else{
+        colours = getAllColours();
+    }
+
     let mylabel = [];
     let allDatasets = [];
     for(i=1; i<=nSeries; i++){
@@ -544,7 +569,7 @@ function drawChart() {
     
     if (chartStyle == "pie") {
         
-    for(j=0; j<nSeries.length;j++){
+    for(j=0; j<nSeries;j++){
         let newValue = getValues(j);
         let newLabel = mylabel[j];
         let newDataset ={
@@ -555,23 +580,21 @@ function drawChart() {
             borderWidth: 1
         };
         myChart.data.datasets.push(newDataset);
-        //myChart.data.labels = headers;
+        myChart.data.labels = headers;
     }
     } else if (chartStyle == "bar"){
         
-    for(j=1; j<=nSeries;j++){
+    for(j=1; j<nSeries;j++){
         let newTempVar = +j -1;
         let newValue = getValues(j);
-        let newLabel = headers[newTempVar];
+        let newLabel = mylabel[newTempVar];
         let newDataset ={
             label: newLabel,
             data: newValue,
-            backgroundColor: colours.slice(0, columnsNumber).concat(",1)"),
-            borderColor: colours,
-            borderWidth: 1
+            backgroundColor: colours[j],
         };
         myChart.data.datasets.push(newDataset);
-        myChart.data.labels = mylabel; //this is the text under each column
+        myChart.data.labels = headers; //this is the text under each column
 
     }
         
@@ -597,7 +620,7 @@ function drawChart() {
     //this is the type of chart it works for all the types
     myChart.config.type= chartStyle;
     //this is for the labels, it works for all EXCEPT BUBBLES
-    console.log(myChart.data.datasets);
+    //console.log(myChart.data.datasets);
 
 
     //this is the same for all the charts
