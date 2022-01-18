@@ -113,7 +113,7 @@ function highlightIcon(item) {
         case "bar_icon":
             newValue = "Bar Chart";
             break;
-        case "stack_icon":
+        case "stacked_icon":
             newValue = "Stack Chart";
             break;
         case "pie_icon":
@@ -164,7 +164,7 @@ function confirmChartStyle() {
             newValue = "bar_icon";
             break;
         case "Stack Chart":
-            newValue = "stack_icon";
+            newValue = "stacked_icon";
             break;
         case "Pie Chart":
             newValue = "pie_icon";
@@ -581,6 +581,7 @@ function drawChart() {
         };
         myChart.data.datasets.push(newDataset);
         myChart.data.labels = headers;
+        myChart.config.type= chartStyle;
     }
     } else if (chartStyle == "bar"){
         
@@ -595,10 +596,24 @@ function drawChart() {
         };
         myChart.data.datasets.push(newDataset);
         myChart.data.labels = headers; //this is the text under each column
-
+        myChart.config.type= chartStyle;
     }
         
-    } else if (chartStyle == "stack"){
+    } else if (chartStyle == "stacked"){    
+        for(j=1; j<nSeries;j++){
+            let newTempVar = +j -1;
+            let newValue = getValues(j);
+            let newLabel = mylabel[newTempVar];
+            let newDataset ={
+                label: newLabel,
+                data: newValue,
+                backgroundColor: colours[j],
+            };
+            myChart.data.datasets.push(newDataset);
+            myChart.data.labels = headers; //this is the text under each column
+            myChart.config.type= "bar";
+    
+        }
         myChart.options.scales.x = {stacked : true};
         myChart.options.scales.y = {stacked : true};
     } else if (chartStyle == "line"){
@@ -618,7 +633,7 @@ function drawChart() {
 
 
     //this is the type of chart it works for all the types
-    myChart.config.type= chartStyle;
+   
     //this is for the labels, it works for all EXCEPT BUBBLES
     //console.log(myChart.data.datasets);
 
