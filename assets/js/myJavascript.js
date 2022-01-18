@@ -520,10 +520,18 @@ function getSeries(i) {
  function getAllColours() {
 
     let allColours = []; 
-    for(i=0; i<rowsNumber; i++){
+    if(chartStyle == "radar"){
+        for(i=0; i<rowsNumber; i++){
+            let newColour = colourPalette[colourSelected][i].concat(",0.2)");
+            allColours.push(newColour);
+        }
+    }else{
+        for(i=0; i<rowsNumber; i++){
         let newColour = colourPalette[colourSelected][i].concat(",1)");
         allColours.push(newColour);
     }
+    }
+    
     
     return allColours;
 };
@@ -635,15 +643,24 @@ function drawChart() {
             
         myChart.options.tension=0;
     } else if (chartStyle == "radar"){
-        myChart.data.datasets = [{
-            label: label,
-            data: values,
-            backgroundColor: colours.slice(0, columnsNumber)+",0.2)",
-            borderColor: colours,
-            borderWidth: 1,
-            fill:true,
-
-        }];
+        
+        for(j=1; j<=nSeries;j++){
+            let newTempVar = +j -1;
+            let newValue = getValues(j);
+            let newLabel = mylabel[newTempVar];
+            let newDataset ={
+                label: newLabel,
+                data: newValue,
+                backgroundColor: colours[newTempVar],
+                borderColor: colours[newTempVar],
+                borderWidth: 1,
+                fill:true,
+            };
+            myChart.data.datasets.push(newDataset);
+            myChart.data.labels = headers; //this is the text under each column
+            myChart.config.type= chartStyle;
+        }
+        
     }
 
 
