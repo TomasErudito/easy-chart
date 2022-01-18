@@ -26,8 +26,7 @@ const canvas = document.getElementById('myChart');
 const ctx = canvas.getContext("2d");
 const myChart = new Chart(ctx, {
     type: 'bar',
-    data: {
-    }
+    data: {}
 });
 let resetChartVariable = false;
 let readyToExport = false;
@@ -37,25 +36,25 @@ let readyToExport = false;
  *
  *
  */
- function resetChart() {
-    chartTitle="My Chart";
-columnsNumber="";
-rowsNumber="";
-chartStyle="";
-colourSelected="";
-textMainColor="";
-chartDescription="";
-descriptionPosition="";
-$("#chart_style_label").html("Select your chart style");
-$("#chart_colour_label").html("Select the colours");
-$("#textColour").val("#ffffff");
-$("#chartDescription").val("");
-$("#descriptionPosition").val(1).change();
-$("#nColumns").val(1).change();
-$("#nRows").val(1).change();
-$("#chartTitle").val("Chart Title");
-$("#chart_title").html("Chart Title");
-$("#myTable").html("");
+function resetChart() {
+    chartTitle = "My Chart";
+    columnsNumber = "";
+    rowsNumber = "";
+    chartStyle = "";
+    colourSelected = "";
+    textMainColor = "";
+    chartDescription = "";
+    descriptionPosition = "";
+    $("#chart_style_label").html("Select your chart style");
+    $("#chart_colour_label").html("Select the colours");
+    $("#textColour").val("#ffffff");
+    $("#chartDescription").val("");
+    $("#descriptionPosition").val(1).change();
+    $("#nColumns").val(1).change();
+    $("#nRows").val(1).change();
+    $("#chartTitle").val("Chart Title");
+    $("#chart_title").html("Chart Title");
+    $("#myTable").html("");
 }
 
 //----------------------------------------------------------------------------------//
@@ -125,8 +124,8 @@ function highlightIcon(item) {
         case "line_icon":
             newValue = "Line Chart";
             break;
-        case "bubble_icon":
-            newValue = "Bubble Chart";
+        case "doughnut_icon":
+            newValue = "Doughnut Chart";
             break;
         default:
             newValue = "Chart Style";
@@ -175,8 +174,8 @@ function confirmChartStyle() {
         case "Line Chart":
             newValue = "line_icon";
             break;
-        case "Bubble Chart":
-            newValue = "bubble_icon";
+        case "Doughnut Chart":
+            newValue = "doughnut_icon";
             break;
         default:
     }
@@ -234,7 +233,7 @@ function startNew() {
 
     //console.log("start new chart");
     resetChart();
-    readyToExport=false;
+    readyToExport = false;
     $("#chart_menu_step_1").show();
     $("#chart_menu_step_2").hide();
     $("#chart_menu_step_3").hide();
@@ -289,10 +288,10 @@ function exportChart() {
 
     var myImage = document.getElementById('myChart').toDataURL("image/png");
 
-    if(readyToExport == false){
+    if (readyToExport == false) {
         let message = "The chart is not created yet, there's nothing to export"
-            myAlert(message);
-    }else{
+        myAlert(message);
+    } else {
         let myFileName = chartTitle + ".png";
         downloadURI("data:" + myImage, myFileName);
     }
@@ -413,7 +412,11 @@ function customizeChart() {
     $("#nRows").change(function () {
         if (chartStyle == "pie" && $("#nRows").val() > 1) {
             $("#nRows").val(1);
-            let message = "The pie chart can only have 1 row."
+            let message = "The type of chart selected can only have 1 row."
+            myAlert(message);
+        } else if (chartStyle == "doughnut" && $("#nRows").val() > 1) {
+            $("#nRows").val(1);
+            let message = "The type of chart selected can only have 1 row."
             myAlert(message);
         }
     });
@@ -445,7 +448,7 @@ function customizeChart() {
  */
 function createChart() {
     //console.log("create chart");
-    readyToExport=true;
+    readyToExport = true;
 
     $("#chart_menu_step_1").hide();
     $("#chart_menu_step_2").hide();
@@ -486,11 +489,14 @@ function getValues(item) {
     if (chartStyle == "pie") {
         item = 1;
         numberValues = columnsNumber;
-    }else{
-        numberValues = +columnsNumber +1;
+    } else if (chartStyle == "doughnut") {
+        item = 1;
+        numberValues = columnsNumber;
+    } else {
+        numberValues = +columnsNumber + 1;
     }
-    
-    
+
+
     let myValues = [];
     for (i = 1; i <= numberValues; i++) {
         let newValue = $("#data_" + item + i).val();
@@ -517,22 +523,22 @@ function getSeries(i) {
  *
  *
  */
- function getAllColours() {
+function getAllColours() {
 
-    let allColours = []; 
-    if(chartStyle == "radar"){
-        for(i=0; i<rowsNumber; i++){
+    let allColours = [];
+    if (chartStyle == "radar") {
+        for (i = 0; i < rowsNumber; i++) {
             let newColour = colourPalette[colourSelected][i].concat(",0.2)");
             allColours.push(newColour);
         }
-    }else{
-        for(i=0; i<rowsNumber; i++){
-        let newColour = colourPalette[colourSelected][i].concat(",1)");
-        allColours.push(newColour);
+    } else {
+        for (i = 0; i < rowsNumber; i++) {
+            let newColour = colourPalette[colourSelected][i].concat(",1)");
+            allColours.push(newColour);
+        }
     }
-    }
-    
-    
+
+
     return allColours;
 };
 
@@ -553,7 +559,9 @@ function drawChart() {
     let nSeries;
     if (chartStyle == "pie") {
         nSeries = 1;
-    }else{
+    } else if (chartStyle == "doughnut") {
+        nSeries = 1;
+    } else {
         nSeries = rowsNumber;
     }
     let headers = getHeaders();
@@ -561,76 +569,123 @@ function drawChart() {
     let colours;
     if (chartStyle == "pie") {
         colours = colourPalette[colourSelected];
-    }else{
+    } else if (chartStyle == "doughnut") {
+        colours = colourPalette[colourSelected];
+    } else {
         colours = getAllColours();
     }
 
     let mylabel = [];
     let allDatasets = [];
-    for(i=1; i<=nSeries; i++){
+    for (i = 1; i <= nSeries; i++) {
         let newLabel = getSeries(i);
         mylabel.push(newLabel);
     }
 
 
     //the datasets and the options change with the type of chart
-    
+
     if (chartStyle == "pie") {
-        
-    for(j=0; j<nSeries;j++){
-        let newValue = getValues(j);
-        let newLabel = mylabel[j];
-        let newDataset ={
-            label: newLabel,
-            data: newValue,
-            backgroundColor: colours.slice(0, columnsNumber).concat(",1)"),
-            borderColor: colours,
-            borderWidth: 1
+
+        for (j = 0; j < nSeries; j++) {
+            let newValue = getValues(j);
+            let newLabel = mylabel[j];
+            let newDataset = {
+                label: newLabel,
+                data: newValue,
+                backgroundColor: colours.slice(0, columnsNumber).concat(",1)"),
+                borderColor: colours,
+                borderWidth: 1
+            };
+            myChart.data.datasets.push(newDataset);
+            myChart.data.labels = headers;
+            myChart.config.type = chartStyle;
+        }
+        myChart.config.options = {
+            scales: {
+                x: {
+                    display: false
+                },
+
+                y: {
+                    display: false
+                }
+            }
         };
-        myChart.data.datasets.push(newDataset);
-        myChart.data.labels = headers;
-        myChart.config.type= chartStyle;
-    }
-    } else if (chartStyle == "bar"){
-        
-    for(j=1; j<=nSeries;j++){
-        let newTempVar = +j -1;
-        let newValue = getValues(j);
-        let newLabel = mylabel[newTempVar];
-        let newDataset ={
-            label: newLabel,
-            data: newValue,
-            backgroundColor: colours[newTempVar],
+
+    } else if (chartStyle == "doughnut") {
+
+        for (j = 0; j < nSeries; j++) {
+            let newValue = getValues(j);
+            let newLabel = mylabel[j];
+            let newDataset = {
+                label: newLabel,
+                data: newValue,
+                backgroundColor: colours.slice(0, columnsNumber).concat(",1)"),
+                borderColor: colours,
+                borderWidth: 1
+            };
+            myChart.data.datasets.push(newDataset);
+            myChart.data.labels = headers;
+            myChart.config.type = chartStyle;
+        }
+
+        myChart.config.options = {
+            scales: {
+                x: {
+                    display: false
+                },
+
+                y: {
+                    display: false
+                }
+            }
         };
-        myChart.data.datasets.push(newDataset);
-        myChart.data.labels = headers; //this is the text under each column
-        myChart.config.type= chartStyle;
-    }
-        
-    } else if (chartStyle == "stacked"){    
-        for(j=1; j<=nSeries;j++){
-            let newTempVar = +j -1;
+
+    } else if (chartStyle == "bar") {
+
+        for (j = 1; j <= nSeries; j++) {
+            let newTempVar = +j - 1;
             let newValue = getValues(j);
             let newLabel = mylabel[newTempVar];
-            let newDataset ={
+            let newDataset = {
                 label: newLabel,
                 data: newValue,
                 backgroundColor: colours[newTempVar],
             };
             myChart.data.datasets.push(newDataset);
             myChart.data.labels = headers; //this is the text under each column
-            myChart.config.type= "bar";
-    
+            myChart.config.type = chartStyle;
         }
-        myChart.options.scales.x = {stacked : true};
-        myChart.options.scales.y = {stacked : true};
-    } else if (chartStyle == "line"){
-        
-        for(j=1; j<=nSeries;j++){
-            let newTempVar = +j -1;
+
+    } else if (chartStyle == "stacked") {
+        for (j = 1; j <= nSeries; j++) {
+            let newTempVar = +j - 1;
             let newValue = getValues(j);
             let newLabel = mylabel[newTempVar];
-            let newDataset ={
+            let newDataset = {
+                label: newLabel,
+                data: newValue,
+                backgroundColor: colours[newTempVar],
+            };
+            myChart.data.datasets.push(newDataset);
+            myChart.data.labels = headers; //this is the text under each column
+            myChart.config.type = "bar";
+
+        }
+        myChart.options.scales.x = {
+            stacked: true
+        };
+        myChart.options.scales.y = {
+            stacked: true
+        };
+    } else if (chartStyle == "line") {
+
+        for (j = 1; j <= nSeries; j++) {
+            let newTempVar = +j - 1;
+            let newValue = getValues(j);
+            let newLabel = mylabel[newTempVar];
+            let newDataset = {
                 label: newLabel,
                 data: newValue,
                 backgroundColor: colours[newTempVar],
@@ -638,35 +693,35 @@ function drawChart() {
             };
             myChart.data.datasets.push(newDataset);
             myChart.data.labels = headers; //this is the text under each column
-            myChart.config.type= chartStyle;
+            myChart.config.type = chartStyle;
         }
-            
-        myChart.options.tension=0;
-    } else if (chartStyle == "radar"){
-        
-        for(j=1; j<=nSeries;j++){
-            let newTempVar = +j -1;
+
+        myChart.options.tension = 0;
+    } else if (chartStyle == "radar") {
+
+        for (j = 1; j <= nSeries; j++) {
+            let newTempVar = +j - 1;
             let newValue = getValues(j);
             let newLabel = mylabel[newTempVar];
-            let newDataset ={
+            let newDataset = {
                 label: newLabel,
                 data: newValue,
                 backgroundColor: colours[newTempVar],
                 borderColor: colours[newTempVar],
                 borderWidth: 1,
-                fill:true,
+                fill: true,
             };
             myChart.data.datasets.push(newDataset);
             myChart.data.labels = headers; //this is the text under each column
-            myChart.config.type= chartStyle;
+            myChart.config.type = chartStyle;
         }
-        
+
     }
 
 
 
     //this is the type of chart it works for all the types
-   
+
     //this is for the labels, it works for all EXCEPT BUBBLES
     //console.log(myChart.data.datasets);
 

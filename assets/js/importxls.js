@@ -149,9 +149,12 @@ function createTableXls(jsondata, tableid) {
 
     //alert if the user choose pie chart, but the table has more than 1 row
     if(chartStyle == "pie" && rowsNumber > 1){
-    let message = "The uploaded file has more than 1 row and the chart type selected is pie. Only the first row will be displayed."
+    let message = "The uploaded file has more than 1 row and because of the chart type selected only the first row will be displayed."
     myAlert(message);
-    }
+    }else if(chartStyle == "doughnut" && rowsNumber > 1){
+        let message = "The uploaded file has more than 1 row and because of the chart type selected only the first row will be displayed."
+        myAlert(message);
+        }
 }
 
 
