@@ -585,14 +585,14 @@ function drawChart() {
     }
     } else if (chartStyle == "bar"){
         
-    for(j=1; j<nSeries;j++){
+    for(j=1; j<=nSeries;j++){
         let newTempVar = +j -1;
         let newValue = getValues(j);
         let newLabel = mylabel[newTempVar];
         let newDataset ={
             label: newLabel,
             data: newValue,
-            backgroundColor: colours[j],
+            backgroundColor: colours[newTempVar],
         };
         myChart.data.datasets.push(newDataset);
         myChart.data.labels = headers; //this is the text under each column
@@ -600,14 +600,14 @@ function drawChart() {
     }
         
     } else if (chartStyle == "stacked"){    
-        for(j=1; j<nSeries;j++){
+        for(j=1; j<=nSeries;j++){
             let newTempVar = +j -1;
             let newValue = getValues(j);
             let newLabel = mylabel[newTempVar];
             let newDataset ={
                 label: newLabel,
                 data: newValue,
-                backgroundColor: colours[j],
+                backgroundColor: colours[newTempVar],
             };
             myChart.data.datasets.push(newDataset);
             myChart.data.labels = headers; //this is the text under each column
@@ -617,6 +617,22 @@ function drawChart() {
         myChart.options.scales.x = {stacked : true};
         myChart.options.scales.y = {stacked : true};
     } else if (chartStyle == "line"){
+        
+        for(j=1; j<=nSeries;j++){
+            let newTempVar = +j -1;
+            let newValue = getValues(j);
+            let newLabel = mylabel[newTempVar];
+            let newDataset ={
+                label: newLabel,
+                data: newValue,
+                backgroundColor: colours[newTempVar],
+                borderColor: colours[newTempVar],
+            };
+            myChart.data.datasets.push(newDataset);
+            myChart.data.labels = headers; //this is the text under each column
+            myChart.config.type= chartStyle;
+        }
+            
         myChart.options.tension=0;
     } else if (chartStyle == "radar"){
         myChart.data.datasets = [{
