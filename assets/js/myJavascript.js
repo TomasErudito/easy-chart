@@ -22,7 +22,7 @@ let colourPalette = [
 let textMainColor;
 let descriptionContainer = jQuery('<div>', {
     id: 'chartLegend',
-    class: 'reset center loaded h-75 inline',
+    class: 'reset center loaded inline w-100',
 });
 let chartDescription;
 let descriptionPosition;
@@ -353,11 +353,12 @@ function needHelp() {
  *
  */
  function addDescription() {
-    
+     let descriptionContent = "<p>"+chartDescription+"</p>";
+    descriptionContainer.html(descriptionContent);
     if(descriptionPosition == "top"){
-        descriptionContainer.prependTo('#main_display');
+        descriptionContainer.prependTo('#theChart');
     }else{
-        descriptionContainer.appendTo('#main_display');
+        descriptionContainer.appendTo('#theChart');
     }
 }
 
