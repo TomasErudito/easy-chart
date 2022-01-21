@@ -301,6 +301,12 @@ img {
 }
 
 
+#backColour{
+    height: 24px;
+    width: 24px;
+}
+
+
 /*data table ------------------*/
 
 #chart_title{
@@ -368,7 +374,7 @@ width: 90%;
 }
 
 
-/* test ---------*/
+/* canvas used for export image ---------*/
 #canvas {
     display: none;
   }

@@ -47,7 +47,7 @@ function resetChart() {
     descriptionPosition = "";
     $("#chart_style_label").html("Select your chart style");
     $("#chart_colour_label").html("Select the colours");
-    $("#textColour").val("#ffffff");
+    $("#backColour").val("#ffffff");
     $("#chartDescription").val("");
     $("#descriptionPosition").val(1).change();
     $("#nColumns").val(1).change();
@@ -258,7 +258,7 @@ function startNew() {
     $(".deselect_colour").click(function () {
         unHighlightColour();
     });
-    $("#textColour").change(function () {
+    $("#backColour").change(function () {
         textMainColor = this.value;
         $("#myChart").css("background-color", textMainColor);
     });
