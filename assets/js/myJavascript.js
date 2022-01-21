@@ -20,6 +20,10 @@ let colourPalette = [
     ["rgba(248, 177, 149", "rgba(246, 114, 128", "rgba(192, 108, 132", "rgba(108, 91, 123", "rgba(53, 92, 125", "rgba(191, 77, 40"]
 ];
 let textMainColor;
+let descriptionContainer = jQuery('<div>', {
+    id: 'chartLegend',
+    class: 'reset center loaded h-75 inline',
+});
 let chartDescription;
 let descriptionPosition;
 const canvas = document.getElementById('myChart');
@@ -240,6 +244,7 @@ function startNew() {
     $("#Instructions").hide();
     $("#main_display").show();
     $("#theChart").hide();
+    $("#chartLegend").hide();
     $("#chart_selection").click(function () {
         unHighlightIcon();
     })
@@ -337,6 +342,25 @@ function needHelp() {
     $("#main_display").hide();
 }
 
+//---------------------------------------------------------------------------//
+
+
+/**
+ * Add the description to the chart
+ *
+ *select the description
+ *append the description in the right position
+ *
+ */
+ function addDescription() {
+    
+    if(descriptionPosition == "top"){
+        descriptionContainer.prependTo('#main_display');
+    }else{
+        descriptionContainer.appendTo('#main_display');
+    }
+}
+
 //------------------------------------------------------------------------//
 
 /**
@@ -418,6 +442,7 @@ function customizeChart() {
     $("#myTable").html("");
     $("#data_chart").show();
     $("#theChart").hide();
+    $("#chartLegend").hide();
     $("#nRows").change(function () {
         if (chartStyle == "pie" && $("#nRows").val() > 1) {
             $("#nRows").val(1);
@@ -466,7 +491,9 @@ function createChart() {
     $("#main_display").show();
     $("#data_chart").hide();
     $("#theChart").show();
+    $("#chartLegend").show();
     drawChart();
+    addDescription();
 };
 //------------------------------------------------------------------------//
 
@@ -610,17 +637,8 @@ function drawChart() {
             myChart.data.labels = headers;
             myChart.config.type = chartStyle;
         }
-        myChart.config.options = {
-            scales: {
-                x: {
-                    display: false
-                },
-
-                y: {
-                    display: false
-                }
-            }
-        };
+        myChart.config.options.scales.x.display= false;
+        myChart.config.options.scales.y.display= false;
 
     } else if (chartStyle == "doughnut") {
 
@@ -639,17 +657,9 @@ function drawChart() {
             myChart.config.type = chartStyle;
         }
 
-        myChart.config.options = {
-            scales: {
-                x: {
-                    display: false
-                },
-
-                y: {
-                    display: false
-                }
-            }
-        };
+        
+        myChart.config.options.scales.x.display= false;
+        myChart.config.options.scales.y.display= false;
 
     } else if (chartStyle == "bar") {
 

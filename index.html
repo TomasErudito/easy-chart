@@ -22,7 +22,8 @@
   </script><!-- Bootstrap js-->
   <script src="https://kit.fontawesome.com/d1dd562f41.js" crossorigin="anonymous"></script><!-- Fontawesome-->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script><!-- Chart js-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script><!-- html2canvas js-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <!-- html2canvas js-->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js"></script> <!-- import xlsx js-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script> <!-- import xls js-->
@@ -262,7 +263,7 @@
 
     <div id="chart_menu_step_3" class="menu chart_menu reset col-4 h100">
       <h2 class="w-100 underline">Your Chart</h2>
-     
+
     </div>
 
     <!-- This div contains the data for the chart or the chart itself depending the step of the creation's process -->
@@ -271,10 +272,11 @@
       <div id="data_chart" class="reset center loaded h-75">
         <div id="myTable"></div>
       </div>
-      
+
       <div id="theChart" class="reset center loaded h-75">
         <canvas id="myChart" aria-label="This is the chart created" role="img">
-          <p>Sorry! your browser is not compatible with the application </p></canvas>
+          <p>Sorry! your browser is not compatible with the application </p>
+        </canvas>
       </div>
     </div>
 
@@ -282,31 +284,31 @@
   <!-- This footer contains links and information about the application -->
   <footer id="footer" class=" row no-gutters"></footer>
 
-<!-- This are the modals for alerts for the user-->
+  <!-- This are the modals for alerts for the user-->
 
-<div class="modal" id="myAlert" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Attention!!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="alertContent">
-        <p>This is an alert</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <div class="modal" id="myAlert" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Attention!!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="alertContent">
+          <p>This is an alert</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- This is one canvas to create all the content before download it in png-->
+  <!-- This is one canvas to create all the content before download it in png-->
 
-<div id="canvas">
-  <p>Canvas:</p>
+  <div id="canvas">
+    <p>Canvas:</p>
   </div>
 
   <!--Here comes the link to myJavascript.js and JS_carousel.js. Other files linked at the head to be sure that they are loaded first-->
