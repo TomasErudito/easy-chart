@@ -366,3 +366,9 @@ width: 90%;
 #myChart{
     max-height: 400px!important;
 }
+
+
+/* test ---------*/
+#canvas {
+    display: none;
+  }

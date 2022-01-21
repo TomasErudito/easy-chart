@@ -286,7 +286,13 @@ function startNew() {
  */
 function exportChart() {
 
-    var myImage = document.getElementById('myChart').toDataURL("image/png");
+    html2canvas([document.getElementById('main_display')], {
+        onrendered: function(canvas) {
+          document.getElementById('canvas').appendChild(canvas);
+          var data = canvas.toDataURL('image/png');
+          // AJAX call to send `data` to a PHP file that creates an image from the dataURI string and saves it to a directory on the server
+      
+          var myImage = data;
 
     if (readyToExport == false) {
         let message = "The chart is not created yet, there's nothing to export"
@@ -295,6 +301,9 @@ function exportChart() {
         let myFileName = chartTitle + ".png";
         downloadURI("data:" + myImage, myFileName);
     }
+        }
+      });
+
 };
 
 
