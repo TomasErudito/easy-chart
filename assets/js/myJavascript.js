@@ -34,6 +34,7 @@ const myChart = new Chart(ctx, {
 });
 let resetChartVariable = false;
 let readyToExport = false;
+let tableReady = false;
 
 /**
  * Reset all the parameters and the canvas to starta new chart
@@ -59,6 +60,8 @@ function resetChart() {
     $("#chartTitle").val("Chart Title");
     $("#chart_title").html("Chart Title");
     $("#myTable").html("");
+    readyToExport = false;
+    tableReady = false;
 }
 
 //----------------------------------------------------------------------------------//
@@ -237,7 +240,6 @@ function startNew() {
 
     //console.log("start new chart");
     resetChart();
-    readyToExport = false;
     $("#chart_menu_step_1").show();
     $("#chart_menu_step_2").hide();
     $("#chart_menu_step_3").hide();
@@ -406,6 +408,7 @@ function createTable(myRows, myColumns) {
     }
     myHTML += "</table></form>";
     document.getElementById("myTable").innerHTML = myHTML;
+    tableReady = true;
 
 }
 
@@ -468,7 +471,12 @@ function customizeChart() {
         createTable(nRows.value, nColumns.value);
     });
     $("#gotoStep3").click(function () {
-        createChart();
+        if (tableReady == true) {
+            createChart();
+        } else {
+            let message = "There is no data to create the chart. You should create a table or upload one from an excel file from your computer."
+            myAlert(message);
+        }
     });
 };
 
@@ -595,6 +603,7 @@ function getAllColours() {
  */
 function drawChart() {
     //alert("columns: "+columnsNumber+"/ rows: "+rowsNumber+"/ style: "+chartStyle+"/ colours selected: "+colourPalette[colourSelected]+"/ ")
+    
     myChart.data.datasets.length = 0;
     let nSeries;
     if (chartStyle == "pie") {

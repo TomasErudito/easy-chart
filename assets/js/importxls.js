@@ -153,6 +153,8 @@ function createTableXls(jsondata, tableid) {
     const tempTitle = fileName.split(".", 1);
     $("#chart_title").html(tempTitle);
 
+    tableReady = true;
+
     //alert if the user choose pie chart, but the table has more than 1 row
     if(chartStyle == "pie" && rowsNumber > 1){
     let message = "The uploaded file has more than 1 row and because of the chart type selected only the first row will be displayed."
