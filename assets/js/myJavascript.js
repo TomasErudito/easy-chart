@@ -340,6 +340,9 @@ function needHelp() {
     $("#chart_menu").hide();
     $("#Instructions").show();
     $("#main_display").hide();
+    $("#chart_menu_step_1").hide();
+    $("#chart_menu_step_2").hide();
+    $("#chart_menu_step_3").hide();
 }
 
 //---------------------------------------------------------------------------//
@@ -355,7 +358,7 @@ function needHelp() {
  function addDescription() {
      let descriptionContent = "<p>"+chartDescription+"</p>";
     descriptionContainer.html(descriptionContent);
-    if(descriptionPosition == "top"){
+    if(descriptionPosition == "2"){
         descriptionContainer.prependTo('#theChart');
     }else{
         descriptionContainer.appendTo('#theChart');

@@ -53,7 +53,8 @@ function ExportToTable() {
         }  
     }  
     else {  
-        alert("Please upload a valid Excel file!");  
+        let message = 'You need to upload an excel file first. Please select the file you want to upload clicking on the text "Import file".'
+        myAlert(message);  
     }  
 }  
 
@@ -146,6 +147,11 @@ function createTableXls(jsondata, tableid) {
     myHTML += "</table></form>";
     document.getElementById("myTable").innerHTML = myHTML;
 
+    let filepath = $("#excelfile").val().toLowerCase();
+    const myArray = filepath.split(/\\/g);
+    let fileName = myArray[myArray.length - 1];
+    const tempTitle = fileName.split(".", 1);
+    $("#chart_title").html(tempTitle);
 
     //alert if the user choose pie chart, but the table has more than 1 row
     if(chartStyle == "pie" && rowsNumber > 1){
