@@ -261,6 +261,10 @@ img {
     border: none;
     color: #cc0066;
     display:inline-flex;
+    cursor: pointer;
+    padding-bottom: 7px;
+    padding-left: 7px;
+    vertical-align: text-top;
 }
 
 
@@ -284,7 +288,8 @@ img {
     color: #cc0066;
     display:inline-flex;
     height: auto;
-    resize: none;
+    resize: vertical;
+    padding: 5px;
 }
 
 .data_menu_button{
@@ -293,6 +298,9 @@ img {
     border-radius: 5px;
     border-color: #cc0066;
     border-style: double;
+    cursor: pointer;
+    margin-right: 7px
+
 }
 
 #chartBackground{
@@ -304,6 +312,10 @@ img {
 #backColour{
     height: 24px;
     width: 24px;
+}
+
+#descriptionForm{
+    padding:0px 7px;
 }
 
 
