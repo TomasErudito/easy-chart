@@ -276,7 +276,12 @@ function startNew() {
         chartDescription = this.value;
     });
     $("#gotoStep2").click(function () {
-        customizeChart();
+        if (chartStyle == "" || colourSelected == "") {
+            let message = "You should select the type of chart that you want to create and the colours before continue."
+            myAlert(message);
+        } else {
+            customizeChart();
+        }
     });
 }
 
@@ -294,22 +299,22 @@ function startNew() {
 function exportChart() {
 
     html2canvas([document.getElementById('main_display')], {
-        onrendered: function(canvas) {
-          document.getElementById('canvas').appendChild(canvas);
-          var data = canvas.toDataURL('image/png');
-          // AJAX call to send `data` to a PHP file that creates an image from the dataURI string and saves it to a directory on the server
-      
-          var myImage = data;
+        onrendered: function (canvas) {
+            document.getElementById('canvas').appendChild(canvas);
+            var data = canvas.toDataURL('image/png');
+            // AJAX call to send `data` to a PHP file that creates an image from the dataURI string and saves it to a directory on the server
 
-    if (readyToExport == false) {
-        let message = "The chart is not created yet, there's nothing to export"
-        myAlert(message);
-    } else {
-        let myFileName = chartTitle + ".png";
-        downloadURI("data:" + myImage, myFileName);
-    }
+            var myImage = data;
+
+            if (readyToExport == false) {
+                let message = "The chart is not created yet, there's nothing to export"
+                myAlert(message);
+            } else {
+                let myFileName = chartTitle + ".png";
+                downloadURI("data:" + myImage, myFileName);
+            }
         }
-      });
+    });
 
 };
 
@@ -357,12 +362,12 @@ function needHelp() {
  *append the description in the right position
  *
  */
- function addDescription() {
-     let descriptionContent = "<p>"+chartDescription+"</p>";
+function addDescription() {
+    let descriptionContent = "<p>" + chartDescription + "</p>";
     descriptionContainer.html(descriptionContent);
-    if(descriptionPosition == "2"){
+    if (descriptionPosition == "2") {
         descriptionContainer.prependTo('#theChart');
-    }else{
+    } else {
         descriptionContainer.appendTo('#theChart');
     }
 }
@@ -603,7 +608,7 @@ function getAllColours() {
  */
 function drawChart() {
     //alert("columns: "+columnsNumber+"/ rows: "+rowsNumber+"/ style: "+chartStyle+"/ colours selected: "+colourPalette[colourSelected]+"/ ")
-    
+
     myChart.data.datasets.length = 0;
     let nSeries;
     if (chartStyle == "pie") {
@@ -650,8 +655,8 @@ function drawChart() {
             myChart.data.labels = headers;
             myChart.config.type = chartStyle;
         }
-        myChart.config.options.scales.x.display= false;
-        myChart.config.options.scales.y.display= false;
+        myChart.config.options.scales.x.display = false;
+        myChart.config.options.scales.y.display = false;
 
     } else if (chartStyle == "doughnut") {
 
@@ -670,9 +675,9 @@ function drawChart() {
             myChart.config.type = chartStyle;
         }
 
-        
-        myChart.config.options.scales.x.display= false;
-        myChart.config.options.scales.y.display= false;
+
+        myChart.config.options.scales.x.display = false;
+        myChart.config.options.scales.y.display = false;
 
     } else if (chartStyle == "bar") {
 
