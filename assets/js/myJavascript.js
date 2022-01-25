@@ -208,11 +208,11 @@ function highlightColour(item) {
     let newValue = name.charAt(6);
 
     $(".colour_icons").css("border", "none");
-    $("#chart_colour_label").html("<img src='/assets/images/colours/colour_" + newValue + ".jpg' alt='' id='selectedColour' class='colour_icons'>");
+    $("#chart_colour_label").html("<img src='assets/images/colours/colour_" + newValue + ".jpg' alt='' id='selectedColour' class='colour_icons'>");
     item.style.border = '2px solid #cc0066';
     newValue--;
     colourSelected = newValue;
-    
+
 }
 
 /**
@@ -294,6 +294,7 @@ function startNew() {
  *change menu's display to visible
  *hide the instructions
  *display the data / chart preview
+ *this is one adaptation of the code from html2canvas
  *
  */
 function exportChart() {
@@ -325,8 +326,6 @@ function downloadURI(uri, name) {
     link.download = name;
     link.href = uri;
     link.click();
-    //after creating link you should delete dynamic link
-    //clearDynamicLink(link); 
 }
 
 
@@ -445,7 +444,7 @@ function titleCreation() {
  *
  */
 function customizeChart() {
-    //console.log("customize chart");
+
 
     $("#chart_menu_step_1").hide();
     $("#chart_menu_step_2").show();
@@ -498,7 +497,7 @@ function customizeChart() {
  *
  */
 function createChart() {
-    //console.log("create chart");
+
     readyToExport = true;
 
     $("#chart_menu_step_1").hide();
@@ -607,7 +606,6 @@ function getAllColours() {
  *
  */
 function drawChart() {
-    //alert("columns: "+columnsNumber+"/ rows: "+rowsNumber+"/ style: "+chartStyle+"/ colours selected: "+colourPalette[colourSelected]+"/ ")
 
     myChart.data.datasets.length = 0;
     let nSeries;
@@ -754,14 +752,6 @@ function drawChart() {
         }
 
     }
-
-
-
-    //this is the type of chart it works for all the types
-
-    //this is for the labels, it works for all EXCEPT BUBBLES
-    //console.log(myChart.data.datasets);
-
 
     //this is the same for all the charts
     myChart.update();
