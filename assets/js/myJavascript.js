@@ -212,7 +212,7 @@ function highlightColour(item) {
     item.style.border = '2px solid #cc0066';
     newValue--;
     colourSelected = newValue;
-    //console.log("colour selected number " + colourSelected + " and the colours are " + colourPalette[colourSelected][0] + "/" + colourPalette[colourSelected][1] + "/" + colourPalette[colourSelected][2] + "/" + colourPalette[colourSelected][3] + "/" + colourPalette[colourSelected][4] + "/" + colourPalette[colourSelected][5])
+    
 }
 
 /**
@@ -276,7 +276,7 @@ function startNew() {
         chartDescription = this.value;
     });
     $("#gotoStep2").click(function () {
-        if (chartStyle == "" || colourSelected == "") {
+        if (chartStyle === "" || colourSelected === "") {
             let message = "You should select the type of chart that you want to create and the colours before continue."
             myAlert(message);
         } else {
