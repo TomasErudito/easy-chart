@@ -304,6 +304,10 @@ img {
 
 }
 
+#chart_colour_label img{
+    width: 60%;
+}
+
 #chartBackground{
     height:1.5em;
     width:50px;
