@@ -290,6 +290,7 @@ img {
     height: auto;
     resize: vertical;
     padding: 5px;
+    max-height: 200px;
 }
 
 .data_menu_button{
