@@ -1,6 +1,6 @@
 <h1 align="center">Easy Chart Website</h1>
 
-<p>This is a website that allows the user to create different types of charts and export them in HTML and JavaScript, to implement them in other websites, or download it in pdf format.</p>
+<p>This is a website that allows the user to create different types of charts and download them in PNG format.</p>
 <br/>
 <h2 align="center"><img src="assets/images/readme_images/devices.jpg"></h2>
 
@@ -18,11 +18,10 @@
 <li>•	Is it easy to create/customize/export the chart?</li>
 <li>•	Would the user enjoy the experience?</li>
 </ul>
-<li>Structure: The website is divided in 3 pages:</li>
+<li>Structure: The website is divided in 2 pages:</li>
 <ul>
 <li>•	Home – Presentation of the aplication and usage guide.</li>
 <li>•	Chart creation – Creation of the chart through the creation tools.</li>
-<li>•	Help – Usage guide and help to integration.</li>
 </ul>
 <li>Skeleton: The information’s organization is simple so the users can navigate easily through the content, create their chart easily, and they should be able of complete the process fast:</li>
 <ul>

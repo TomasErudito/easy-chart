@@ -363,7 +363,7 @@ function needHelp() {
  *
  */
 function addDescription() {
-    let descriptionContent = "<p>" + chartDescription + "</p>";
+    let descriptionContent = '<div class="reset data_menu_textarea w-100">' + chartDescription + '</div>';
     descriptionContainer.html(descriptionContent);
     if (descriptionPosition == "2") {
         descriptionContainer.prependTo('#theChart');
