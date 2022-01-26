@@ -35,6 +35,14 @@
 </ul>
 <br/>
 
+<p>The mockups of the site present a very clean and simple structure with the instructions on the first page:</p>
+<br/>
+<h2 align="center"><img src="assets/images/readme_images/home.jpg"></h2>
+<p>In the creation stage there are three separate areas clearly separated</p>
+<br/>
+<h2 align="center"><img src="assets/images/readme_images/data_input.jpg"></h2>
+<br/>
+
 ## UX Goals<br/>
 <br/>
 
@@ -242,5 +250,61 @@ Is it easy to create/customize/export the chart? / Would the user enjoy the expe
 <p>•	W3Schools</p>
 <p>•	Stackoverflow</p>
 <br/>
+
+
+## Deployment
+
+<h3> How this Project was Deployed<h3><br/>
+
+This project was deployed to GitHub pages via the following steps:
+
+1. Log into [GitHub](https://GitHub.com/).
+2. From the list of Repositories, select [BAK2K3/hard-drivers](https://github.com/TomasErudito/easy-chart).
+3. From the Repositories sub-headings, select "Settings".
+4. Under "Options", the first category of settings, scroll down to the GitHub Pages section.
+5. From the dropdown list under the "Source" heading, select "main".
+6. A second drop-down menu that appears should remain as the default value, "/root".
+7. Press Save. 
+8. On Page refresh, scroll back down to the GitHub Pages section, and the link to the deployed site will be available in a green sub-section with a tick icon next to it.
+
+As this project was developed on the master branch, all changes made to the repository are immediately reflected in the deployed project.
+
+<h3>How to Run this Project in your Browser</h3><br/>
+
+1. Install the [Google Chrome](https://www.google.co.uk/chrome/) or [Firefox](https://www.mozilla.org/en-GB/exp/firefox/new/) browser.
+2. Install the applicable [GitPod](https://www.gitpod.io/docs/browser-extension/) Browser Extensions for your chosen browser.
+4. Create a [GitHub](https://GitHub.com/join) account. 
+3. Log in to [Gitpod](https://gitpod.io/login/) using your GitHub account.
+4. Visit Hard Driver's [GitHub Repository](https://github.com/TomasErudito/easy-chart).
+5. Open the repository in Gitpod:
+    * Click the green "Gitpod" icon at the top of the Repository
+6. A new workspace will open with the current state of the main branch. Any changes made to the main branch after this point will not be automatically updated in your Gitpod Workspace.
+
+## How to Run this Project Locally
+
+<h3>Cloning the Repository</h3><br/>
+
+1. Visit Hard Driver's [GitHub Repository](https://github.com/TomasErudito/easy-chart).
+2. Click the "Code" dropdown box above the repository's file explorer. 
+3. Under the "Clone" heading, click the "HTTPS" sub-heading.
+4. Click the clipboard icon, or manually copy the text presented: `https://github.com/TomasErudito/easy-chart.git`
+5. Open your preferred IDE (VSCode, Atom, PyCharm, etc).
+6. Ensure your IDE has support for Git, or has the relevant Git extension.
+7. Open the terminal, and create a directory where you would like the Repository to be stored.
+8. Type `git clone` and paste the previously copied text (`https://github.com/TomasErudito/easy-chart.git`) and press enter.
+9. The Repository will then be cloned to your selected directory. 
+
+<h3>Manually Downloading the Repository</h3><br/>
+
+1. Visit Hard Driver's [GitHub Repository](https://github.com/TomasErudito/easy-chart.git).
+2. Click the "Code" dropdown box above the repository's file explorer. 
+3. Click the "Download ZIP" option; this will download a copy of the selected branch's repository as a zip file.
+4. Locate the ZIP file downloaded to your computer, and extract the ZIP to a designated folder which you would like the repository to be stored.
+
+<h3>Opening the Repository</h3><br/>
+
+1. Open your preferred IDE (VSCode, Atom, PyCharm, etc).
+2. Navigate to the chosen directory where the Repository was Cloned/Extracted.
+3. You will now have offline access to the contents of the project.
 
 
