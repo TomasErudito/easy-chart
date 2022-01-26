@@ -47,7 +47,7 @@ function resetChart() {
     rowsNumber = "";
     chartStyle = "";
     colourSelected = "";
-    textMainColor = "";
+    textMainColor = "#ffffff";
     chartDescription = "";
     descriptionPosition = "";
     $("#chart_style_label").html("Select your chart style");
@@ -267,7 +267,6 @@ function startNew() {
     });
     $("#backColour").change(function () {
         textMainColor = this.value;
-        $("#myChart").css("background-color", textMainColor);
     });
     $("#descriptionPosition").change(function () {
         descriptionPosition = this.value;
@@ -281,6 +280,7 @@ function startNew() {
             myAlert(message);
         } else {
             customizeChart();
+            $("#myChart").css("background-color", textMainColor);
         }
     });
 }
